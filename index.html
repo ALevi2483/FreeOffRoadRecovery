@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Free Off-Road Recovery • Get Unstuck With Community Help</title>
-  <meta name="description" content="Connect with volunteers for no cost off-road recovery. Find helpers near you and get back on the trail." />
+  <meta name="description" content="Connect with volunteers for no-cost off-road recovery. Find helpers near you and get back on the trail." />
   <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="/styles.css" />
 
@@ -17,26 +17,57 @@
     /* Page-only tweaks; most styling comes from styles.css */
     .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
     .helper{color:var(--muted);font-size:.95rem}
+    .hero-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:18px;box-shadow:0 2px 6px rgba(0,0,0,.05)}
     .finder-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;box-shadow:0 2px 6px rgba(0,0,0,.05)}
     .finder-actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
     .finder-actions input{flex:1;min-width:240px;padding:10px;border:1px solid var(--border);border-radius:8px}
     .results-grid{display:grid;gap:10px}
     .card-compact{padding:12px}
     .hr{height:1px;background:var(--border);margin:18px 0}
+    .how-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .how-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px}
+    @media (max-width:800px){ .how-grid{grid-template-columns:1fr} }
   </style>
 </head>
 <body>
   <!-- Header + Menu auto-injected by site.js -->
 
   <main>
-   
+
+    <!-- WELCOME -->
+    <section class="section" aria-labelledby="welcome-title">
+      <div class="wrap">
+        <div class="hero-card">
+          <h1 id="welcome-title">Get Unstuck With Community Help</h1>
+          <p>
+            Free Off-Road Recovery connects stranded drivers with nearby <strong>volunteers</strong> willing to help at no cost.
+            This is a public bulletin board, not a professional service. Use your judgment, share your location, and stay safe.
+          </p>
+          <div class="how-grid" aria-label="How it works">
+            <div class="how-card">
+              <strong>1) Find help</strong>
+              <p class="helper">Use your GPS or enter an address to see the <em>three closest</em> volunteers with distance.</p>
+            </div>
+            <div class="how-card">
+              <strong>2) Contact directly</strong>
+              <p class="helper">Call or email a volunteer to share a GPS pin, terrain details, and your vehicle info.</p>
+            </div>
+            <div class="how-card">
+              <strong>3) Volunteer safely</strong>
+              <p class="helper">All assistance is voluntary and at your own risk. If it’s an emergency, call 911 first.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- QUICK FINDER -->
     <section class="section">
       <div class="wrap">
         <div class="finder-card" aria-labelledby="closest-title">
           <h2 id="closest-title" style="margin:0 0 8px">Find Closest Volunteers To Me</h2>
           <p class="helper" style="margin:0 0 12px">
-            Click Find to use your location. Or type an address and click Search by address.
+            Click Find to use your location, or type an address and click Search by address.
           </p>
 
           <div class="finder-actions">
@@ -65,20 +96,20 @@
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
 
-    // Site menu (exact file names)
+    // Site menu (use root for Home; filenames lowercase for consistency)
     window.MENU_LINKS = [
-      { href: '/home.html',      label: 'Home' },
-      { href: '/find.html',      label: 'Find Volunteers' },
-      { href: '/volunteer.html', label: 'Become a Volunteer' },
-      { href: '/FAQ.html',       label: 'FAQ' },
-      { href: '/Contact.html',   label: 'Contact' }
+      { href: '/',              label: 'Home' },
+      { href: '/find.html',     label: 'Find Volunteers' },
+      { href: '/volunteer.html',label: 'Become a Volunteer' },
+      { href: '/faq.html',      label: 'FAQ' },
+      { href: '/contact.html',  label: 'Contact' }
     ];
   </script>
 
   <!-- Closest volunteers logic -->
   <script>
     // === CONFIG ===
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby_c7mYlQXgNAtYadifgYZldSpUBbp5ou4GBGFGCfZ8qoLU_QLusyOlmer928i-bw06pQ/exec'; // must end with /exec
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby_c7mYlQXgNAtYadifgYZldSpUBbp5ou4GBGFGCfZ8qoLU_QLusyOlmer928i-bw06pQ/exec';
     const TOP_N = 3;
 
     // Elements
