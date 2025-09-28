@@ -4,54 +4,187 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FAQ • Free Off-Road Recovery</title>
-  <meta name="description" content="Frequently asked questions about Free Off-Road Recovery. Learn how the volunteer system works and what to expect." />
+  <meta name="description" content="Frequently asked questions about Free Off-Road Recovery. How it works, what to share, safety, volunteers, and more." />
   <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="/styles.css" />
+  <!-- Social -->
+  <meta property="og:title" content="FAQ • Free Off-Road Recovery" />
+  <meta property="og:description" content="How the volunteer program works, what to share, and safety guidelines." />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta property="og:type" content="website" />
+
+  <!-- Page-only tweaks -->
+  <style>
+    .toc { background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px }
+    .toc h2 { margin:0 0 8px }
+    .toc a { text-decoration:none }
+    .toc ul { margin:0; padding-left:18px }
+    .faq-block details { border:1px solid var(--border); border-radius:12px; padding:14px; background:#fff }
+    .faq-block details + details { margin-top:12px }
+    .faq-block summary { cursor:pointer; font-weight:700 }
+    .badge { display:inline-block; padding:2px 8px; border-radius:999px; font-size:.8rem; border:1px solid var(--border); background:#fff }
+    .callout{background:#fff3e8;border:1px solid #ffe1c8;border-radius:12px;padding:14px}
+    .btn-row{display:flex;gap:10px;flex-wrap:wrap}
+  </style>
 </head>
 <body>
   <!-- Header + Menu auto-injected by site.js -->
 
   <main>
-    <!-- Hero -->
-    <section class="hero">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="faq-hero">
       <div class="wrap">
         <div class="hero-card">
-          <h1>FAQ</h1>
-          <p>
-            Answers to common questions about how Free Off-Road Recovery works.  
-            Please read before posting or responding to requests.
-          </p>
+          <h1 id="faq-hero">Frequently Asked Questions</h1>
+          <p>Read this before posting or responding to a recovery request. It covers how the site works, safety, and volunteering.</p>
+          <div class="btn-row" style="margin-top:12px">
+            <a class="btn btn-primary" href="/find.html">🔎 Find Volunteers</a>
+            <a class="btn" href="/volunteer.html">✋ Become a Volunteer</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- FAQ Content -->
-    <section class="section">
+    <!-- TOC -->
+    <section class="section" aria-labelledby="on-this-page">
+      <div class="wrap">
+        <div class="toc">
+          <h2 id="on-this-page" style="margin-top:0">On this page</h2>
+          <ul>
+            <li><a href="#how-it-works">How it works</a></li>
+            <li><a href="#posting-a-request">Posting a request</a></li>
+            <li><a href="#safety">Safety & risk</a></li>
+            <li><a href="#volunteers">For volunteers</a></li>
+            <li><a href="#legal">Legal & payments</a></li>
+            <li><a href="#contact">Need more help?</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section" id="how-it-works" aria-labelledby="how-title">
       <div class="wrap">
         <div class="card">
-          <h2 style="margin-top:0">Is this a professional service?</h2>
-          <p>No. This is a community bulletin board for volunteers. Use at your own risk.</p>
+          <h2 id="how-title" style="margin-top:0">How it works <span class="badge">Overview</span></h2>
+          <ol>
+            <li>Find nearby volunteers on the site and contact them directly.</li>
+            <li>Share a GPS pin, vehicle details, terrain, and hazards.</li>
+            <li>Agree on a safe meet-up plan. Volunteers are neighbors, not pros.</li>
+          </ol>
+          <p style="color:var(--muted);margin:0">This is a community bulletin board. Use at your own risk.</p>
+        </div>
+      </div>
+    </section>
 
-          <h2>Does it cost anything?</h2>
-          <p>No. Volunteers offer their time freely. You may choose to offer gas money or a thank-you, but it is not required.</p>
+    <!-- POSTING A REQUEST -->
+    <section class="section" id="posting-a-request" aria-labelledby="post-title">
+      <div class="wrap">
+        <div class="card faq-block">
+          <h2 id="post-title" style="margin-top:0">Posting a request</h2>
 
-          <h2>What should I include when I post a request?</h2>
+          <details>
+            <summary>What information should I include?</summary>
+            <ul>
+              <li>GPS pin or coordinates</li>
+              <li>Vehicle make/model and whether you have recovery points</li>
+              <li>Terrain and hazards (mud depth, water, snow, slope, rocks)</li>
+              <li>Gear on hand (straps, boards, winch, shackles)</li>
+              <li>How far you are from pavement and gate/land access info</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>How fast will someone respond?</summary>
+            <p>There are no guaranteed response times. Volunteers help as they are able.</p>
+          </details>
+
+          <details>
+            <summary>Should I keep my engine running?</summary>
+            <p>Follow safe practices for your vehicle and conditions. If you smell fuel, see water ingress, or the engine is overheating, shut it off and move to a safe area.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAFETY -->
+    <section class="section" id="safety" aria-labelledby="safety-title">
+      <div class="wrap">
+        <div class="callout">
+          <h2 id="safety-title" style="margin-top:0">Safety & Risk</h2>
           <ul>
-            <li>Your GPS location (pin or coordinates)</li>
-            <li>Vehicle details (make, model, tires, recovery points)</li>
-            <li>Terrain description (mud, sand, snow, water, incline, etc.)</li>
-            <li>Any gear you already have (winch, tow straps, shackles, etc.)</li>
+            <li>If anyone is in danger, call 911.</li>
+            <li>Volunteers decide what they can safely attempt. It’s okay to decline.</li>
+            <li>Use proper recovery points; avoid tow balls and unsafe anchor points.</li>
+            <li>Stand clear of straps, lines, and potential snap-back zones.</li>
           </ul>
+          <p style="margin:0;color:var(--muted)">You accept all risks. This site does not supervise or certify volunteers.</p>
+        </div>
+      </div>
+    </section>
 
-          <h2>What if I need urgent or emergency help?</h2>
-          <p>
-            Call 911 if anyone’s life or safety is at risk.  
-            This site is for community volunteer assistance, not emergency response.
-          </p>
+    <!-- VOLUNTEERS -->
+    <section class="section" id="volunteers" aria-labelledby="vol-title">
+      <div class="wrap">
+        <div class="card faq-block">
+          <h2 id="vol-title" style="margin-top:0">For Volunteers</h2>
 
-          <h2>Can I become a volunteer?</h2>
-          <p>
-            Yes. Use the volunteer signup form (link on the main site) to share your info and get added to the map/directory.
+          <details>
+            <summary>Who can volunteer?</summary>
+            <p>Anyone with basic off-road recovery knowledge and suitable gear. A winch helps but is not required. Good judgment is required.</p>
+          </details>
+
+          <details>
+            <summary>What gear is recommended?</summary>
+            <ul>
+              <li>Rated tow/recovery straps and soft shackles</li>
+              <li>Traction boards, shovel, air compressor</li>
+              <li>Recovery points front and rear; winch optional</li>
+              <li>Gloves, lights, and communication (cell or radio)</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Can I remove myself later?</summary>
+            <p>Yes. You can request removal or pause your listing at any time.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEGAL -->
+    <section class="section" id="legal" aria-labelledby="legal-title">
+      <div class="wrap">
+        <div class="card faq-block">
+          <h2 id="legal-title" style="margin-top:0">Legal & Payments</h2>
+
+          <details>
+            <summary>Is this a professional service?</summary>
+            <p>No. This is a volunteer community. We do not supervise, train, or certify anyone.</p>
+          </details>
+
+          <details>
+            <summary>Does it cost anything?</summary>
+            <p>No fees. Tips or gas money offered by the driver are optional.</p>
+          </details>
+
+          <details>
+            <summary>Who is responsible for damages?</summary>
+            <p>All arrangements are strictly between drivers and volunteers. By using this site you agree to hold it and its administrators harmless.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="card">
+          <h2 id="contact-title" style="margin-top:0">Need more help?</h2>
+          <p>Can’t find what you need here? Reach out and we’ll point you in the right direction.</p>
+          <p class="btn-row">
+            <a class="btn" href="/Contact.html">Contact</a>
+            <a class="btn" href="/volunteer.html">Become a Volunteer</a>
           </p>
         </div>
       </div>
@@ -59,13 +192,20 @@
   </main>
 
   <footer class="footer">
-    <div class="wrap">
-      © <span id="yr"></span> Free Off-Road Recovery
-    </div>
+    <div class="wrap">© <span id="yr"></span> Free Off-Road Recovery</div>
   </footer>
 
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Exact menu (case-sensitive to your files)
+    window.MENU_LINKS = [
+      { href: '/home.html',      label: 'Home' },
+      { href: '/find.html',      label: 'Find Volunteers' },
+      { href: '/volunteer.html', label: 'Become a Volunteer' },
+      { href: '/FAQ.html',       label: 'FAQ' },
+      { href: '/Contact.html',   label: 'Contact' }
+    ];
   </script>
   <script src="/site.js" defer></script>
 </body>
