@@ -1,74 +1,72 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FAQ – Free Off-Road Recovery</title>
-  <meta name="description" content="Frequently asked questions about Free Off-Road Recovery. Requesting help, safety, legality, and volunteer listings." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ • Free Off-Road Recovery</title>
+  <meta name="description" content="Frequently asked questions about Free Off-Road Recovery. Learn how the volunteer system works and what to expect." />
   <link rel="icon" href="/favicon.ico" />
-  <style>
-    :root{
-      --bg:#F3F0E7; --fg:#1F2A24; --accent:#D97706; --muted:#5D665F;
-      --card:#FFFFFF; --border:#E3E0D6; --brand:#2F6B3E; --brand-dark:#1E4D2B;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.65}
-    .wrap{max-width:980px;margin:40px auto;padding:0 20px}
-    h1,h2,h3{margin:0 0 .5rem}
-    h2{color:var(--brand-dark)}
-    .note{color:var(--muted);font-size:.95rem}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:16px 0}
-    details{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin:12px 0}
-    summary{cursor:pointer;font-weight:700}
-    details[open]{border-color:#d8e4d8}
-    .grid{display:grid;grid-template-columns:1fr;gap:16px}
-    @media(min-width:820px){.grid{grid-template-columns:1fr 1fr}}
-    .hidden{position:absolute;left:-9999px}
-  </style>
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-  <div class="wrap">
-    <h1 class="hidden">Free Off-Road Recovery Frequently Asked Questions</h1>
-    <h2>Frequently Asked Questions</h2>
-    <p class="note">This site is a public bulletin board that connects people who need off-road recovery with volunteers. It is not a dispatch center or a business.</p>
+  <!-- Header + Menu auto-injected by site.js -->
 
-    <div class="grid">
-      <div>
-        <details open>
-          <summary>How do I request recovery help?</summary>
-          <p>Post in our bulletin board at <a href="FACEBOOK_GROUP_URL" target="_blank" rel="noopener">FACEBOOK_GROUP_NAME</a> with photos, a pinned location, and access directions. You can also use <a href="REQUEST_FORM_URL">REQUEST_FORM_URL</a> or check the map on the Find page.</p>
-        </details>
-        <details><summary>How fast will someone respond?</summary><p>There is no guaranteed response time. Volunteers reply when they can.</p></details>
-        <details><summary>Does this cost money?</summary><p>Standard recoveries are free. Paid tow services must disclose fees and may be refused.</p></details>
-        <details>
-          <summary>What info should I include?</summary>
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-card">
+          <h1>FAQ</h1>
+          <p>
+            Answers to common questions about how Free Off-Road Recovery works.  
+            Please read before posting or responding to requests.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <section class="section">
+      <div class="wrap">
+        <div class="card">
+          <h2 style="margin-top:0">Is this a professional service?</h2>
+          <p>No. This is a community bulletin board for volunteers. Use at your own risk.</p>
+
+          <h2>Does it cost anything?</h2>
+          <p>No. Volunteers offer their time freely. You may choose to offer gas money or a thank-you, but it is not required.</p>
+
+          <h2>What should I include when I post a request?</h2>
           <ul>
-            <li>Photos of the vehicle and terrain</li>
-            <li>Pinned GPS location or exact address and access route</li>
-            <li>Vehicle details and hazards</li>
-            <li>Preferred or allowed recovery methods if you have preferences</li>
+            <li>Your GPS location (pin or coordinates)</li>
+            <li>Vehicle details (make, model, tires, recovery points)</li>
+            <li>Terrain description (mud, sand, snow, water, incline, etc.)</li>
+            <li>Any gear you already have (winch, tow straps, shackles, etc.)</li>
           </ul>
-        </details>
-        <details><summary>What if my situation becomes dangerous?</summary><p>Call 911 first. Volunteers are not a substitute for emergency services.</p></details>
+
+          <h2>What if I need urgent or emergency help?</h2>
+          <p>
+            Call 911 if anyone’s life or safety is at risk.  
+            This site is for community volunteer assistance, not emergency response.
+          </p>
+
+          <h2>Can I become a volunteer?</h2>
+          <p>
+            Yes. Use the volunteer signup form (link on the main site) to share your info and get added to the map/directory.
+          </p>
+        </div>
       </div>
+    </section>
+  </main>
 
-      <div>
-        <details><summary>Who are the volunteers?</summary><p>Independent off-road enthusiasts with varying experience and gear. They are not screened or supervised by this site.</p></details>
-        <details><summary>Who is responsible for damage?</summary><p>Each participant is responsible for their own vehicle and equipment. Take before and after photos.</p></details>
-        <details><summary>Is trespassing allowed?</summary><p>No. Get permission to access private property and follow all laws.</p></details>
-        <details><summary>How do I get listed on the map?</summary><p>Fill out <a href="VOLUNTEER_FORM_URL">VOLUNTEER_FORM_URL</a> and provide a geocodable landmark for your pin.</p></details>
-        <details><summary>How do I update or remove my listing?</summary><p>Use the form option to update an existing record or email <a href="mailto:CONTACT_EMAIL">CONTACT_EMAIL</a>.</p></details>
-      </div>
+  <footer class="footer">
+    <div class="wrap">
+      © <span id="yr"></span> Free Off-Road Recovery
     </div>
+  </footer>
 
-    <div class="card">
-      <h3>Legal and Privacy</h3>
-      <details><summary>Is this professional guidance?</summary><p>No. Nothing here is professional instruction.</p></details>
-      <details><summary>Do you share my data?</summary><p>See our <a href="privacy.html">Privacy</a> and <a href="terms.html">Terms</a>. Request posts are public by design.</p></details>
-      <details><summary>Can I donate?</summary><p>If donations or merchandise become available we will list them on the site.</p></details>
-    </div>
-
-    <p class="note">Questions not answered here? Email <a href="mailto:CONTACT_EMAIL">CONTACT_EMAIL</a>.</p>
-  </div>
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+  <script src="/site.js" defer></script>
 </body>
 </html>
