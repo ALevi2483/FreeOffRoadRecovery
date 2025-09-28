@@ -18,29 +18,30 @@
         <div class="hero-card">
           <h1>Get Unstuck With Community Help</h1>
           <p>
-            We connect drivers with volunteers for no-cost off-road recovery. 
+            We connect drivers with volunteers for no-cost off-road recovery.
             Public bulletin board. No professional services offered.
           </p>
           <p style="margin-top:18px">
             <a class="btn btn-primary" href="/find.html">🔎 Find Volunteers</a>
+            <a class="btn" href="/volunteer.html">Become a Volunteer</a>
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Info section -->
+    <!-- Quick links to all pages you have -->
     <section class="section">
       <div class="wrap">
         <div class="card">
-          <h2 style="margin-top:0">How It Works</h2>
-          <ol>
-            <li>Check the volunteer map and contact the closest helpers.</li>
-            <li>Share your GPS location, terrain type, and vehicle details.</li>
-            <li>Wait in a safe spot. You are responsible for your own safety and property.</li>
-          </ol>
-          <p style="color:var(--muted)">
-            Use at your own risk. Read the FAQ before posting.
-          </p>
+          <h2 style="margin-top:0">Quick Links</h2>
+          <ul>
+            <li><a href="/home.html">Home</a></li>
+            <li><a href="/find.html">Find Volunteers</a></li>
+            <li><a href="/volunteer.html">Become a Volunteer</a></li>
+            <li><a href="/FAQ.html">FAQ</a></li>
+            <li><a href="/Contact.html">Contact</a></li>
+          </ul>
+          <p style="color:var(--muted)">Tip: Read the FAQ before posting or responding to a request.</p>
         </div>
       </div>
     </section>
@@ -53,7 +54,17 @@
   </footer>
 
   <script>
+    // Footer year
     document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Set the exact links you want in the slide-out menu (case sensitive)
+    window.MENU_LINKS = [
+      { href: '/home.html',     label: 'Home' },
+      { href: '/find.html',     label: 'Find Volunteers' },
+      { href: '/volunteer.html',label: 'Become a Volunteer' },
+      { href: '/FAQ.html',      label: 'FAQ' },
+      { href: '/Contact.html',  label: 'Contact' }
+    ];
   </script>
   <script src="/site.js" defer></script>
 </body>
