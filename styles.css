@@ -21,13 +21,13 @@ body{
   color:var(--fg);
   line-height:1.5;
 }
-a{color:inherit}
+a{color:inherit;text-decoration:none}
 
 /* ---------- Header ---------- */
 .site-header{
   background:linear-gradient(180deg,var(--brand) 0%, var(--brand2) 100%);
   color:#fff;
-  position:sticky; top:0; z-index:50;
+  position:sticky; top:0; z-index:1000;
   border-bottom:1px solid rgba(255,255,255,.08);
 }
 .header-wrap{
@@ -35,13 +35,39 @@ a{color:inherit}
   padding:14px 18px;
   display:flex; align-items:center; justify-content:space-between;
 }
-.brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:20px; color:#fff; text-decoration:none}
+.brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:20px; color:#fff}
 .brand-badge{width:34px;height:34px;border-radius:6px;background:var(--brandAccent);display:inline-block}
 .menu-btn{
   border:1px solid rgba(255,255,255,.2);
   background:transparent; color:#fff;
-  border-radius:10px; padding:10px 14px; font-weight:600;
+  border-radius:10px; padding:10px 14px; font-weight:600; cursor:pointer;
 }
+
+/* ---------- Nav Drawer ---------- */
+.nav-overlay{
+  position:fixed; inset:0; background:rgba(0,0,0,.35);
+  opacity:0; pointer-events:none; transition:opacity .2s ease; z-index:999;
+}
+.nav-drawer{
+  position:fixed; top:0; right:0; height:100%; width:82%;
+  max-width:320px; background:#111827; color:#fff; z-index:1000;
+  transform:translateX(100%); transition:transform .25s ease;
+  display:flex; flex-direction:column;
+  border-left:1px solid rgba(255,255,255,.1);
+}
+.nav-drawer header{display:flex;align-items:center;justify-content:space-between;padding:16px;border-bottom:1px solid rgba(255,255,255,.1)}
+.nav-drawer a{color:#fff}
+.nav-close{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.25);padding:8px 10px;border-radius:8px;cursor:pointer}
+.nav-links{padding:8px}
+.nav-links a{
+  display:block; padding:14px 16px; border-radius:10px;
+}
+.nav-links a:hover{background:rgba(255,255,255,.06)}
+.nav-links a.active{background:var(--brandAccent); color:#fff}
+
+/* open state */
+.nav-open .nav-overlay{opacity:1;pointer-events:auto}
+.nav-open .nav-drawer{transform:translateX(0)}
 
 /* ---------- Hero ---------- */
 .hero{background:#fff; padding:42px 18px 28px; border-bottom:1px solid var(--border)}
