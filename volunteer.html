@@ -8,42 +8,57 @@
   <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="/styles.css" />
 
-  <style>
-    /* Page-specific tweaks */
-    .section h2 { margin-top: 0 }
-    .cta-row { margin-top: 18px; display:flex; gap:12px; flex-wrap:wrap }
-    .note { color: var(--muted); font-size: 0.95rem }
+  <!-- Social -->
+  <meta property="og:title" content="Become a Volunteer • Free Off-Road Recovery" />
+  <meta property="og:description" content="Join neighbors helping neighbors with safe, no-cost off-road recoveries." />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta property="og:type" content="website" />
 
-    /* Modal */
-    .modal { display:none; position:fixed; inset:0; z-index:1200; background:rgba(0,0,0,.85); align-items:center; justify-content:center; padding:20px }
-    .modal-content {
-      background:#fff; color:var(--fg); width:min(900px,100%);
-      max-height:85vh; overflow:auto; border-radius:12px; border:1px solid var(--border);
-      padding:22px 20px 24px; position:relative;
-    }
-    .modal-content h2 { margin:0 0 8px; color:var(--accent2) }
-    .modal-content h3 { margin:18px 0 8px }
-    .close-btn, .nav-close { cursor:pointer }
-    .close-btn {
-      position:absolute; top:14px; right:16px; border:1px solid #ddd; border-radius:10px;
-      padding:6px 10px; background:#fff; font-weight:600;
-    }
-    .agree-btn { margin-top:16px }
-    .legal-list p { margin:.35rem 0 }
+  <!-- Page-only tweaks -->
+  <style>
+    .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+    .grid{display:grid;gap:16px}
+    @media (min-width: 720px){ .grid--3{grid-template-columns:repeat(3,1fr)} .grid--2{grid-template-columns:repeat(2,1fr)} }
+
+    /* step cards */
+    .step{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px}
+    .step h3{margin:0 0 6px}
+    .step .num{display:inline-block;font-weight:800;margin-right:8px}
+
+    /* checklist */
+    .check{list-style:none;padding-left:0;margin:0}
+    .check li{padding-left:28px;position:relative;margin:8px 0}
+    .check li::before{content:"✓";position:absolute;left:0;top:0;font-weight:900;color:var(--accent2)}
+
+    /* gear grid */
+    .gear{display:grid;gap:10px}
+    @media (min-width: 720px){ .gear{grid-template-columns:repeat(2,1fr)} }
+    .gear .card{padding:14px}
+
+    /* callouts */
+    .callout{background:#fff3e8;border:1px solid #ffe1c8;border-radius:12px;padding:14px}
+
+    /* modal */
+    .modal{display:none;position:fixed;inset:0;z-index:1200;background:rgba(0,0,0,.86);align-items:center;justify-content:center;padding:20px}
+    .modal-content{background:#fff;color:var(--fg);width:min(900px,100%);max-height:85vh;overflow:auto;border-radius:12px;border:1px solid var(--border);padding:22px 20px 24px;position:relative}
+    .modal-content h2{margin:0 0 8px;color:var(--accent2)}
+    .close-btn{position:absolute;top:14px;right:16px;border:1px solid #ddd;border-radius:10px;padding:6px 10px;background:#fff;font-weight:600;cursor:pointer}
+    .agree-btn{margin-top:12px}
+    .note{color:var(--muted);font-size:.95rem}
   </style>
 </head>
 <body>
   <!-- Header + Menu auto-injected by site.js -->
 
   <main>
-    <!-- Hero -->
-    <section class="hero">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
       <div class="wrap">
         <div class="hero-card">
-          <h1>Become a Volunteer</h1>
-          <p>Join the community that helps recover stuck vehicles in mud, sand, snow, and trails — always free, volunteer-to-driver.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#" onclick="openDisclaimer()">Sign Up (Free)</a>
+          <h1 id="hero-title">Become a Volunteer</h1>
+          <p>Neighbors helping neighbors. Join the community that recovers stuck vehicles in mud, sand, snow, and trails — always free.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#" onclick="openDisclaimer()">✋ Sign Up (Free)</a>
             <a class="btn" href="#requirements">See Requirements</a>
           </div>
           <p class="note">You’ll review a brief disclaimer first, then continue to the signup form.</p>
@@ -51,70 +66,83 @@
       </div>
     </section>
 
-    <!-- Why volunteer -->
-    <section class="section">
+    <!-- HOW IT WORKS -->
+    <section class="section" aria-labelledby="how-title">
       <div class="wrap">
-        <div class="card">
-          <h2>Why Volunteer?</h2>
-          <ul>
-            <li>Help neighbors get home safe when they’re stuck off-road.</li>
-            <li>Build local trail/community connections.</li>
-            <li>Promote safe, responsible recoveries with the right gear and techniques.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Who can volunteer / requirements -->
-    <section class="section" id="requirements">
-      <div class="wrap">
-        <div class="card">
-          <h2>Who Can Volunteer?</h2>
-          <ul>
-            <li>Drivers with off-road experience who understand safe recovery basics.</li>
-            <li>Folks with appropriate gear (tow straps/soft shackles, recovery points, traction boards, winch optional).</li>
-            <li>People willing to follow local laws, land-use rules, and Tread Lightly principles.</li>
-          </ul>
-
-          <h2 style="margin-top:16px">What We Ask</h2>
-          <ol>
-            <li>No fees. You may accept voluntary gas money only.</li>
-            <li>Communicate clearly about risks, access, and meet-up safety.</li>
-            <li>Do not attempt risky recoveries beyond your capability. It’s okay to decline.</li>
-          </ol>
-
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#" onclick="openDisclaimer()">I’m In — Sign Me Up</a>
+        <h2 id="how-title" style="margin-top:0">How It Works</h2>
+        <div class="grid grid--3">
+          <div class="step">
+            <h3><span class="num">1.</span>Join</h3>
+            <p>Complete the volunteer form to be added to the map/directory.</p>
+          </div>
+          <div class="step">
+            <h3><span class="num">2.</span>Connect</h3>
+            <p>Drivers contact you directly with a GPS pin and situation details.</p>
+          </div>
+          <div class="step">
+            <h3><span class="num">3.</span>Recover</h3>
+            <p>Attempt safe recoveries within your capability. Tips for gas are optional.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="section">
+    <!-- REQUIREMENTS -->
+    <section class="section" id="requirements" aria-labelledby="req-title">
       <div class="wrap">
         <div class="card">
-          <h2>Volunteer FAQ</h2>
+          <h2 id="req-title" style="margin-top:0">Volunteer Requirements</h2>
+          <ul class="check">
+            <li>Basic off-road recovery knowledge and good judgment.</li>
+            <li>Appropriate recovery points on your vehicle.</li>
+            <li>Bring basic gear (see recommended list below).</li>
+            <li>Follow local laws, land-use rules, and respect private property.</li>
+            <li>No charging fees. Voluntary tips/gas money allowed.</li>
+          </ul>
+          <div class="btn-row"><a class="btn btn-primary" href="#" onclick="openDisclaimer()">I Meet These — Sign Me Up</a></div>
+        </div>
+      </div>
+    </section>
 
-          <details>
-            <summary>Can I charge for recoveries?</summary>
-            <p>No. This is a volunteer, no-cost community effort. Tips or gas money offered by the driver are optional.</p>
-          </details>
+    <!-- RECOMMENDED GEAR -->
+    <section class="section" aria-labelledby="gear-title">
+      <div class="wrap">
+        <div class="card">
+          <h2 id="gear-title" style="margin-top:0">Recommended Gear</h2>
+          <div class="gear">
+            <div class="card">
+              <strong>Recovery Basics</strong>
+              <ul>
+                <li>Rated recovery/tow strap</li>
+                <li>Soft shackles or rated bow shackles</li>
+                <li>Front & rear recovery points</li>
+              </ul>
+            </div>
+            <div class="card">
+              <strong>Traction & Tools</strong>
+              <ul>
+                <li>Traction boards & shovel</li>
+                <li>Tire deflator & air compressor</li>
+                <li>Gloves, lights, first aid</li>
+              </ul>
+            </div>
+          </div>
+          <p class="note" style="margin-top:8px">A winch is helpful but not required. Attempt only what you can perform safely.</p>
+        </div>
+      </div>
+    </section>
 
-          <details>
-            <summary>What info will drivers provide?</summary>
-            <p>GPS pin/coordinates, terrain description, vehicle details, hazards, and what gear they already have.</p>
-          </details>
-
-          <details>
-            <summary>What if I’m unavailable?</summary>
-            <p>Drivers can contact other listed volunteers. You can pause or remove yourself later if needed.</p>
-          </details>
-
-          <details>
-            <summary>Is this an emergency service?</summary>
-            <p>No. If anyone is in danger, call 911. Volunteers are neighbors lending a hand, not first responders.</p>
-          </details>
+    <!-- EXPECTATIONS / CODE OF CONDUCT -->
+    <section class="section" aria-labelledby="exp-title">
+      <div class="wrap">
+        <div class="callout">
+          <h2 id="exp-title" style="margin-top:0">Expectations</h2>
+          <ul>
+            <li>Communicate clearly about risks, access, and meet-up location.</li>
+            <li>It’s okay to decline a recovery that looks unsafe or beyond your capability.</li>
+            <li>Use proper anchors; avoid tow balls and unsafe attachment points.</li>
+            <li>Keep bystanders clear of straps, lines, and snap-back zones.</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -131,56 +159,44 @@
       <h2 id="discTitle">Volunteer Disclaimer</h2>
 
       <h3>For Drivers / Requesters</h3>
-      <div class="legal-list">
-        <p><strong>Informational Only:</strong> This site is a public bulletin board that lets drivers and volunteers connect. We do not assign, supervise, train, or certify volunteers.</p>
-        <p><strong>No Guarantees:</strong> We do not guarantee a volunteer’s skill, availability, or legal compliance. Use your own judgment.</p>
-        <p><strong>Assumption of Risk:</strong> You accept all risks related to meeting a volunteer and attempting a recovery.</p>
-        <p><strong>Property & Access:</strong> Volunteers must have your permission to access property or trails. All arrangements are between you and the volunteer.</p>
-      </div>
+      <p><strong>Informational Only:</strong> This site is a public bulletin board connecting drivers and volunteers. We do not assign, supervise, train, or certify volunteers.</p>
+      <p><strong>No Guarantees:</strong> We do not guarantee a volunteer’s skill, availability, or legal compliance. Use your own judgment.</p>
+      <p><strong>Assumption of Risk:</strong> You accept all risks related to meeting a volunteer and attempting a recovery.</p>
 
       <h3>For Volunteers</h3>
-      <div class="legal-list">
-        <p><strong>Independent:</strong> You act on your own. You are not an employee, agent, or representative of this site.</p>
-        <p><strong>Know Your Limits:</strong> Attempt only recoveries you can perform safely with your skills, vehicle, and gear.</p>
-        <p><strong>Legal Compliance:</strong> Follow local laws, land-use rules, and any permit requirements. Respect closures and private property.</p>
-        <p><strong>No Payment:</strong> Do not charge for recoveries. Voluntary tips/gas money are allowed.</p>
-      </div>
+      <p><strong>Independent:</strong> You act on your own. You are not an employee, agent, or representative of this site.</p>
+      <p><strong>Know Your Limits:</strong> Attempt only recoveries you can perform safely with your skills, vehicle, and gear.</p>
+      <p><strong>Legal Compliance:</strong> Follow local laws, land-use rules, and any permit requirements. Respect closures and private property.</p>
+      <p><strong>No Fees:</strong> Do not charge for recoveries. Voluntary tips/gas money are allowed.</p>
 
       <p class="note">By continuing, you agree to hold harmless Free Off-Road Recovery and its administrators from any claims, injuries, losses, or damages related to your use of this site.</p>
-
       <button class="btn btn-primary agree-btn" onclick="agreeAndOpenForm()">I Agree — Continue to Signup</button>
     </div>
   </div>
 
   <script>
-    // Set © year
+    // Footer year
     document.getElementById('yr').textContent = new Date().getFullYear();
 
-    // Signup destination — replace this with your real Google Form link later
+    // Replace this with your real Google Form URL when ready
     const VOLUNTEER_FORM_URL = 'PUT_YOUR_GOOGLE_FORM_LINK_HERE';
 
     function openDisclaimer(){ document.getElementById('disclaimerModal').style.display='flex'; }
     function closeDisclaimer(){ document.getElementById('disclaimerModal').style.display='none'; }
     function agreeAndOpenForm(){
       closeDisclaimer();
-      // Opens in a new tab so users can still reference the requirements
-      window.open(VOLUNTEER_FORM_URL, '_blank');
+      window.open(VOLUNTEER_FORM_URL, '_blank'); // keep page open for reference
     }
-  </script>
 
-  <!-- Optional: define custom menu links for this page/site -->
-  <!--
-  <script>
+    // Exact menu (case-sensitive)
     window.MENU_LINKS = [
-      { href: '/index.html',          label: 'Home' },
-      { href: '/find.html',           label: 'Find Volunteers' },
-      { href: '/volunteer.html',      label: 'Become a Volunteer' },
-      { href: '/reviews.html',        label: 'Reviews' },
-      { href: '/faq.html',            label: 'FAQ' },
-      { href: '/contact.html',        label: 'Contact' }
+      { href: '/home.html',      label: 'Home' },
+      { href: '/find.html',      label: 'Find Volunteers' },
+      { href: '/volunteer.html', label: 'Become a Volunteer' },
+      { href: '/FAQ.html',       label: 'FAQ' },
+      { href: '/Contact.html',   label: 'Contact' }
     ];
   </script>
-  -->
   <script src="/site.js" defer></script>
 </body>
 </html>
