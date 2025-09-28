@@ -10,7 +10,7 @@
 
   <!-- Social -->
   <meta property="og:title" content="Find Volunteers • Free Off-Road Recovery" />
-  <meta property="og:description" content="Use the map to contact local volunteers for no cost recoveries." />
+  <meta property="og:description" content="Use the map to contact local volunteers for no-cost recoveries." />
   <meta property="og:image" content="/og-image.jpg" />
   <meta property="og:type" content="website" />
 
@@ -22,7 +22,8 @@
     @media (min-width: 900px){ .grid{grid-template-columns: 2fr 1fr} }
     .map-shell{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden}
     .map-header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--border)}
-    .map-body{min-height:480px}
+    .map-body{min-height:520px;position:relative}
+    .map-body iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
     .tip{background:#f7f3ea;border:1px solid #ebe5d7;border-radius:10px;padding:10px;margin-top:10px}
     .callout{background:#fff3e8;border:1px solid #ffe1c8;border-radius:12px;padding:14px}
     .card h3{margin:0 0 8px}
@@ -58,24 +59,19 @@
           <div class="map-shell" role="region" aria-label="Volunteer map">
             <div class="map-header">
               <strong>Volunteer Map</strong>
-              <span class="helper">Paste your Google Map embed below</span>
+              <a class="helper" href="https://www.google.com/maps/d/viewer?mid=1OIfAV-mmB025_Rr_huHgUjIzgE9XG_E&ll=0,0&z=2" target="_blank" rel="noopener">Open in Google Maps</a>
             </div>
             <div class="map-body" id="map-embed">
-              <!-- ====== GOOGLE MAP PLACEHOLDER START ======
-                   Replace this entire comment block with your Google My Maps or Maps embed iframe.
-                   Example:
-                   <iframe
-                     src="https://www.google.com/maps/d/embed?mid=YOUR_CUSTOM_MAP_ID"
-                     width="100%"
-                     height="100%"
-                     loading="lazy"
-                     style="border:0"
-                     allowfullscreen>
-                   </iframe>
-                   ====== GOOGLE MAP PLACEHOLDER END ====== -->
+              <!-- Embedded Google My Maps -->
+              <iframe
+                src="https://www.google.com/maps/d/embed?mid=1OIfAV-mmB025_Rr_huHgUjIzgE9XG_E&ehbc=2E312F&noprof=1"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
             </div>
             <div class="tip">
-              Tip: If the map does not load, try refreshing the page or open the map in a new tab.
+              Tip: If the map does not load, refresh the page or use the “Open in Google Maps” link above.
             </div>
           </div>
 
@@ -117,10 +113,9 @@
           <h2 style="margin-top:0">Volunteer Directory (optional)</h2>
           <p class="helper">If you will publish a simple list, paste your Google Sheet embed below. You can delete this section if you do not need it.</p>
           <div class="dir-embed">
-            <!-- ====== GOOGLE SHEET PLACEHOLDER START ======
-                 Replace the iframe below with your published Google Sheet embed when ready.
-                 <iframe src="https://docs.google.com/spreadsheets/d/e/YOUR_SHEET_ID/pubhtml?widget=true&amp;headers=false"></iframe>
-                 ====== GOOGLE SHEET PLACEHOLDER END ====== -->
+            <!-- Example (replace with your sheet embed if you want the list on-page):
+            <iframe src="https://docs.google.com/spreadsheets/d/e/YOUR_SHEET_ID/pubhtml?widget=true&amp;headers=false"></iframe>
+            -->
           </div>
         </div>
       </div>
