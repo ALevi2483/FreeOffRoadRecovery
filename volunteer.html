@@ -1,202 +1,116 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Become a Volunteer • Free Off-Road Recovery</title>
-  <meta name="description" content="Join the Free Off-Road Recovery community as a volunteer. Help recover stuck vehicles safely at no cost." />
+  <title>Volunteer Registration | Free Off-Road Recovery</title>
+  <meta name="description" content="Sign up as a volunteer for Free Off-Road Recovery and help drivers in need of assistance." />
   <link rel="icon" href="/favicon.ico" />
-  <link rel="stylesheet" href="/styles.css" />
-
-  <!-- Social -->
-  <meta property="og:title" content="Become a Volunteer • Free Off-Road Recovery" />
-  <meta property="og:description" content="Join neighbors helping neighbors with safe, no-cost off-road recoveries." />
-  <meta property="og:image" content="/og-image.jpg" />
-  <meta property="og:type" content="website" />
-
-  <!-- Page-only tweaks -->
   <style>
-    .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
-    .grid{display:grid;gap:16px}
-    @media (min-width: 720px){ .grid--3{grid-template-columns:repeat(3,1fr)} .grid--2{grid-template-columns:repeat(2,1fr)} }
-
-    /* step cards */
-    .step{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px}
-    .step h3{margin:0 0 6px}
-    .step .num{display:inline-block;font-weight:800;margin-right:8px}
-
-    /* checklist */
-    .check{list-style:none;padding-left:0;margin:0}
-    .check li{padding-left:28px;position:relative;margin:8px 0}
-    .check li::before{content:"✓";position:absolute;left:0;top:0;font-weight:900;color:var(--accent2)}
-
-    /* gear grid */
-    .gear{display:grid;gap:10px}
-    @media (min-width: 720px){ .gear{grid-template-columns:repeat(2,1fr)} }
-    .gear .card{padding:14px}
-
-    /* callouts */
-    .callout{background:#fff3e8;border:1px solid #ffe1c8;border-radius:12px;padding:14px}
-
-    /* modal */
-    .modal{display:none;position:fixed;inset:0;z-index:1200;background:rgba(0,0,0,.86);align-items:center;justify-content:center;padding:20px}
-    .modal-content{background:#fff;color:var(--fg);width:min(900px,100%);max-height:85vh;overflow:auto;border-radius:12px;border:1px solid var(--border);padding:22px 20px 24px;position:relative}
-    .modal-content h2{margin:0 0 8px;color:var(--accent2)}
-    .close-btn{position:absolute;top:14px;right:16px;border:1px solid #ddd;border-radius:10px;padding:6px 10px;background:#fff;font-weight:600;cursor:pointer}
-    .agree-btn{margin-top:12px}
-    .note{color:var(--muted);font-size:.95rem}
+    :root {
+      --bg: #ffffff;
+      --fg: #111111;
+      --muted: #6b7280;
+      --brand: #14532d;
+      --brandAccent: #16a34a;
+      --card: #f8fafc;
+      --border: #e5e7eb;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--brand);
+      color: #fff;
+      padding: 1rem;
+    }
+    header h1 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+    nav {
+      margin-top: 0.5rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 1rem;
+      font-weight: 500;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    main h2 {
+      margin-bottom: 0.5rem;
+      color: var(--brand);
+    }
+    main p {
+      margin-bottom: 1.5rem;
+      color: var(--muted);
+    }
+    iframe {
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      background: var(--brand);
+      color: #fff;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
-  <!-- Header + Menu auto-injected by site.js -->
+  <header>
+    <h1>Free Off-Road Recovery</h1>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/find.html">Find Volunteers</a>
+      <a href="/post.html">Post a Request</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/about.html">About</a>
+      <a href="/volunteer.html">Volunteer</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+  </header>
 
   <main>
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="wrap">
-        <div class="hero-card">
-          <h1 id="hero-title">Become a Volunteer</h1>
-          <p>Neighbors helping neighbors. Join the community that recovers stuck vehicles in mud, sand, snow, and trails — always free.</p>
-          <div class="btn-row">
-            <a class="btn btn-primary" href="#" onclick="openDisclaimer()">✋ Sign Up (Free)</a>
-            <a class="btn" href="#requirements">See Requirements</a>
-          </div>
-          <p class="note">You’ll review a brief disclaimer first, then continue to the signup form.</p>
-        </div>
-      </div>
-    </section>
+    <h2>Volunteer Registration</h2>
+    <p>
+      Thank you for stepping up to help others in need. Fill out the form below to register 
+      as a volunteer. Your information will be added to our directory so drivers can reach out 
+      when they need recovery assistance. All participation is on a volunteer basis.
+    </p>
 
-    <!-- HOW IT WORKS -->
-    <section class="section" aria-labelledby="how-title">
-      <div class="wrap">
-        <h2 id="how-title" style="margin-top:0">How It Works</h2>
-        <div class="grid grid--3">
-          <div class="step">
-            <h3><span class="num">1.</span>Join</h3>
-            <p>Complete the volunteer form to be added to the map/directory.</p>
-          </div>
-          <div class="step">
-            <h3><span class="num">2.</span>Connect</h3>
-            <p>Drivers contact you directly with a GPS pin and situation details.</p>
-          </div>
-          <div class="step">
-            <h3><span class="num">3.</span>Recover</h3>
-            <p>Attempt safe recoveries within your capability. Tips for gas are optional.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- REQUIREMENTS -->
-    <section class="section" id="requirements" aria-labelledby="req-title">
-      <div class="wrap">
-        <div class="card">
-          <h2 id="req-title" style="margin-top:0">Volunteer Requirements</h2>
-          <ul class="check">
-            <li>Basic off-road recovery knowledge and good judgment.</li>
-            <li>Appropriate recovery points on your vehicle.</li>
-            <li>Bring basic gear (see recommended list below).</li>
-            <li>Follow local laws, land-use rules, and respect private property.</li>
-            <li>No charging fees. Voluntary tips/gas money allowed.</li>
-          </ul>
-          <div class="btn-row"><a class="btn btn-primary" href="#" onclick="openDisclaimer()">I Meet These — Sign Me Up</a></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- RECOMMENDED GEAR -->
-    <section class="section" aria-labelledby="gear-title">
-      <div class="wrap">
-        <div class="card">
-          <h2 id="gear-title" style="margin-top:0">Recommended Gear</h2>
-          <div class="gear">
-            <div class="card">
-              <strong>Recovery Basics</strong>
-              <ul>
-                <li>Rated recovery/tow strap</li>
-                <li>Soft shackles or rated bow shackles</li>
-                <li>Front & rear recovery points</li>
-              </ul>
-            </div>
-            <div class="card">
-              <strong>Traction & Tools</strong>
-              <ul>
-                <li>Traction boards & shovel</li>
-                <li>Tire deflator & air compressor</li>
-                <li>Gloves, lights, first aid</li>
-              </ul>
-            </div>
-          </div>
-          <p class="note" style="margin-top:8px">A winch is helpful but not required. Attempt only what you can perform safely.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPECTATIONS / CODE OF CONDUCT -->
-    <section class="section" aria-labelledby="exp-title">
-      <div class="wrap">
-        <div class="callout">
-          <h2 id="exp-title" style="margin-top:0">Expectations</h2>
-          <ul>
-            <li>Communicate clearly about risks, access, and meet-up location.</li>
-            <li>It’s okay to decline a recovery that looks unsafe or beyond your capability.</li>
-            <li>Use proper anchors; avoid tow balls and unsafe attachment points.</li>
-            <li>Keep bystanders clear of straps, lines, and snap-back zones.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+    <iframe 
+      src="https://docs.google.com/forms/d/e/1FAIpQLSdYbjHf7wOFK-Bs1zR72HRA-2QCa1iYVgk29I4ZP0jerGsx6w/viewform?embedded=true" 
+      width="640" 
+      height="2805" 
+      frameborder="0" 
+      marginheight="0" 
+      marginwidth="0">
+      Loading…
+    </iframe>
   </main>
 
-  <footer class="footer">
-    <div class="wrap">© <span id="yr"></span> Free Off-Road Recovery</div>
+  <footer>
+    &copy; 2025 Free Off-Road Recovery. All rights reserved.
   </footer>
-
-  <!-- Disclaimer Modal -->
-  <div class="modal" id="disclaimerModal" role="dialog" aria-modal="true" aria-labelledby="discTitle">
-    <div class="modal-content">
-      <button class="close-btn" onclick="closeDisclaimer()" aria-label="Close disclaimer">Close</button>
-      <h2 id="discTitle">Volunteer Disclaimer</h2>
-
-      <h3>For Drivers / Requesters</h3>
-      <p><strong>Informational Only:</strong> This site is a public bulletin board connecting drivers and volunteers. We do not assign, supervise, train, or certify volunteers.</p>
-      <p><strong>No Guarantees:</strong> We do not guarantee a volunteer’s skill, availability, or legal compliance. Use your own judgment.</p>
-      <p><strong>Assumption of Risk:</strong> You accept all risks related to meeting a volunteer and attempting a recovery.</p>
-
-      <h3>For Volunteers</h3>
-      <p><strong>Independent:</strong> You act on your own. You are not an employee, agent, or representative of this site.</p>
-      <p><strong>Know Your Limits:</strong> Attempt only recoveries you can perform safely with your skills, vehicle, and gear.</p>
-      <p><strong>Legal Compliance:</strong> Follow local laws, land-use rules, and any permit requirements. Respect closures and private property.</p>
-      <p><strong>No Fees:</strong> Do not charge for recoveries. Voluntary tips/gas money are allowed.</p>
-
-      <p class="note">By continuing, you agree to hold harmless Free Off-Road Recovery and its administrators from any claims, injuries, losses, or damages related to your use of this site.</p>
-      <button class="btn btn-primary agree-btn" onclick="agreeAndOpenForm()">I Agree — Continue to Signup</button>
-    </div>
-  </div>
-
-  <script>
-    // Footer year
-    document.getElementById('yr').textContent = new Date().getFullYear();
-
-    // Replace this with your real Google Form URL when ready
-    const VOLUNTEER_FORM_URL = 'PUT_YOUR_GOOGLE_FORM_LINK_HERE';
-
-    function openDisclaimer(){ document.getElementById('disclaimerModal').style.display='flex'; }
-    function closeDisclaimer(){ document.getElementById('disclaimerModal').style.display='none'; }
-    function agreeAndOpenForm(){
-      closeDisclaimer();
-      window.open(VOLUNTEER_FORM_URL, '_blank'); // keep page open for reference
-    }
-
-    // Exact menu (case-sensitive)
-    window.MENU_LINKS = [
-      { href: '/home.html',      label: 'Home' },
-      { href: '/find.html',      label: 'Find Volunteers' },
-      { href: '/volunteer.html', label: 'Become a Volunteer' },
-      { href: '/FAQ.html',       label: 'FAQ' },
-      { href: '/Contact.html',   label: 'Contact' }
-    ];
-  </script>
-  <script src="/site.js" defer></script>
 </body>
 </html>
