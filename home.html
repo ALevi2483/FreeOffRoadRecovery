@@ -3,58 +3,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>Home • Free Off-Road Recovery</title>
-  <meta name="description" content="Community-powered off-road recovery. Find volunteers or join the network to help stuck drivers. No fees—neighbors helping neighbors." />
-
-  <!-- Icons / Styles -->
+  <title>Free Off-Road Recovery • Get Unstuck With Community Help</title>
+  <meta name="description" content="Connect with volunteers for no cost off-road recovery. Find helpers near you and get back on the trail." />
   <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Open Graph / Social share -->
   <meta property="og:title" content="Free Off-Road Recovery" />
-  <meta property="og:description" content="Volunteer off-road recoveries. No fees—neighbors helping neighbors." />
+  <meta property="og:description" content="Find volunteers near you for no cost off-road recovery." />
   <meta property="og:image" content="/og-image.jpg" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://freeoffroadrecovery.com/home.html" />
-  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Page-only visual tweaks -->
   <style>
-    /* hero visuals */
-    .hero--image {
-      background:
-        radial-gradient(circle at 20% 10%, rgba(255,255,255,.18), transparent 40%),
-        radial-gradient(circle at 80% 0%, rgba(255,255,255,.10), transparent 45%),
-        linear-gradient(180deg,#111827 0%, #1b242c 100%);
-      color:#fff; border-bottom:none;
-    }
-    .hero--image .hero-card{
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.12);
-      color:#fff;
-    }
-    .hero--image h1{ color:#fff }
-    .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
-
-    /* quick actions */
-    .grid{display:grid;gap:16px}
-    @media (min-width: 720px){ .grid{grid-template-columns:repeat(3,1fr)} }
-    .action-card h3{margin:0 0 8px}
-    .action-card p{margin:0 0 12px}
-
-    /* stats */
-    .stats{display:grid;gap:10px;margin-top:6px}
-    @media (min-width:720px){ .stats{grid-template-columns:repeat(3,1fr)} }
-    .stat{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
-    .stat strong{font-size:1.35rem;display:block}
-
-    /* testimonial */
-    .quote{font-style:italic;margin:0}
-    .quote cite{display:block;color:var(--muted);margin-top:8px}
-
-    /* safety callout */
-    .callout{background:#fff3e8;border:1px solid #ffe1c8;border-radius:12px;padding:14px}
+    /* Page-only tweaks; most styling comes from styles.css */
+    .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+    .helper{color:var(--muted);font-size:.95rem}
+    .finder-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;box-shadow:0 2px 6px rgba(0,0,0,.05)}
+    .finder-actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+    .finder-actions input{flex:1;min-width:240px;padding:10px;border:1px solid var(--border);border-radius:8px}
+    .results-grid{display:grid;gap:10px}
+    .card-compact{padding:12px}
+    .hr{height:1px;background:var(--border);margin:18px 0}
   </style>
 </head>
 <body>
@@ -62,82 +30,57 @@
 
   <main>
     <!-- HERO -->
-    <section class="hero hero--image" aria-labelledby="hero-title">
+    <section class="hero" aria-labelledby="hero-title">
       <div class="wrap">
         <div class="hero-card">
-          <h1 id="hero-title">Get Unstuck. Get Home.</h1>
-          <p>Volunteer off-road recoveries for mud, sand, snow, and trails. No fees—neighbors helping neighbors.</p>
+          <h1 id="hero-title">Get Unstuck With Community Help</h1>
+          <p>We connect drivers with volunteers for no cost off-road recovery. Public bulletin board. No professional services.</p>
           <div class="btn-row">
-            <a class="btn btn-primary" href="/find.html">🔎 Find Volunteers</a>
-            <a class="btn" href="/volunteer.html">✋ Become a Volunteer</a>
-            <a class="btn" href="/FAQ.html">📖 Read the FAQ</a>
+            <a class="btn btn-primary" href="/find.html">Find Volunteers</a>
+            <a class="btn" href="/volunteer.html">Become a Volunteer</a>
           </div>
+          <p class="helper">Use at your own risk. If anyone is in danger, call 911.</p>
         </div>
       </div>
     </section>
 
-    <!-- QUICK ACTIONS -->
-    <section class="section" aria-labelledby="quick-actions">
+    <!-- QUICK FINDER -->
+    <section class="section">
       <div class="wrap">
-        <h2 id="quick-actions" style="margin-top:0">Quick Actions</h2>
-        <div class="grid">
-          <div class="card action-card">
-            <h3>Post a Request</h3>
-            <p>Share a GPS pin, vehicle details, and terrain. Volunteers will contact you directly.</p>
-            <p><a class="btn btn-primary" href="/find.html">Start Here</a></p>
+        <div class="finder-card" aria-labelledby="closest-title">
+          <h2 id="closest-title" style="margin:0 0 8px">Find Closest Volunteers To Me</h2>
+          <p class="helper" style="margin:0 0 12px">
+            Click Find to use your location. Or type an address and click Search by address.
+          </p>
+
+          <div class="finder-actions">
+            <button id="btnGeoFind" class="btn btn-primary">Find (use my location)</button>
+            <input id="addrInput" type="text" placeholder="Or enter an address, city, or ZIP" />
+            <button id="btnAddrFind" class="btn">Search by address</button>
           </div>
-          <div class="card action-card">
-            <h3>Join as Volunteer</h3>
-            <p>Add yourself to the map. Bring basic gear and common sense—no winch required.</p>
-            <p><a class="btn" href="/volunteer.html">Sign Up</a></p>
-          </div>
-          <div class="card action-card">
-            <h3>Learn the Basics</h3>
-            <p>What info to share, what gear helps, and when to call it—fast answers in the FAQ.</p>
-            <p><a class="btn" href="/FAQ.html">Open FAQ</a></p>
+
+          <div id="closestNotice" class="helper" style="margin:6px 0 12px;"></div>
+          <div id="closestResults" class="results-grid"></div>
+
+          <div class="hr"></div>
+          <div class="helper">
+            Tip: Sharing a GPS pin, terrain, and vehicle details will help volunteers plan a safe recovery.
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SOCIAL PROOF / STATS -->
-    <section class="section" aria-labelledby="by-the-numbers">
+    <!-- HOW IT WORKS -->
+    <section class="section">
       <div class="wrap">
         <div class="card">
-          <h2 id="by-the-numbers" style="margin-top:0">By the Numbers</h2>
-          <div class="stats">
-            <div class="stat">
-              <strong>40+</strong>
-              Active Volunteers
-            </div>
-            <div class="stat">
-              <strong>50 mi</strong>
-              Typical Response Radius
-            </div>
-            <div class="stat">
-              <strong>$0</strong>
-              Always Free (tips optional)
-            </div>
-          </div>
-          <p class="quote" style="margin-top:14px">
-            “Buried to the frame in sand. Two volunteers showed up in under an hour and had me moving in ten minutes.”
-            <cite>— Driver submission</cite>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SAFETY / DISCLAIMER -->
-    <section class="section" aria-labelledby="safety">
-      <div class="wrap">
-        <div class="callout">
-          <h2 id="safety" style="margin-top:0">Safety First</h2>
-          <ul>
-            <li>Volunteers are not professionals. Use at your own risk.</li>
-            <li>Share a GPS pin, terrain hazards, and whether you have recovery points.</li>
-            <li>If anyone’s in danger, call 911 before anything else.</li>
-          </ul>
-          <p style="margin:0;color:var(--muted)">See full details in the <a href="/FAQ.html">FAQ</a>.</p>
+          <h2 style="margin-top:0">How It Works</h2>
+          <ol>
+            <li>Find nearby volunteers using the quick finder above or the map.</li>
+            <li>Contact one or more directly.</li>
+            <li>Share a GPS pin, vehicle details, terrain, and hazards.</li>
+            <li>Agree on a safe meet up plan.</li>
+          </ol>
         </div>
       </div>
     </section>
@@ -148,10 +91,9 @@
   </footer>
 
   <script>
-    // Footer year
     document.getElementById('yr').textContent = new Date().getFullYear();
 
-    // Exact menu items (case-sensitive to match your files)
+    // Site menu (exact file names)
     window.MENU_LINKS = [
       { href: '/home.html',      label: 'Home' },
       { href: '/find.html',      label: 'Find Volunteers' },
@@ -160,6 +102,103 @@
       { href: '/Contact.html',   label: 'Contact' }
     ];
   </script>
+
+  <!-- Closest volunteers logic -->
+  <script>
+    // === CONFIG ===
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby_c7mYlQXgNAtYadifgYZldSpUBbp5ou4GBGFGCfZ8qoLU_QLusyOlmer928i-bw06pQ/exec'; // must end with /exec
+    const TOP_N = 3;
+
+    // Elements
+    const btnGeo  = document.getElementById('btnGeoFind');
+    const btnAddr = document.getElementById('btnAddrFind');
+    const addrEl  = document.getElementById('addrInput');
+    const notice  = document.getElementById('closestNotice');
+    const results = document.getElementById('closestResults');
+
+    btnGeo?.addEventListener('click', () => {
+      clearUI();
+      notice.textContent = 'Getting your location...';
+      if (!('geolocation' in navigator)) {
+        notice.textContent = 'Geolocation not supported by this browser.';
+        return;
+      }
+      navigator.geolocation.getCurrentPosition(async (pos) => {
+        const { latitude, longitude } = pos.coords;
+        notice.textContent = 'Finding closest volunteers...';
+        try {
+          const res = await fetch(`${SCRIPT_URL}?lat=${latitude}&lon=${longitude}&limit=${TOP_N}`, { cache: 'no-store' });
+          await renderResults(res);
+        } catch (e) { showError(e); }
+      }, () => {
+        notice.textContent = 'Location permission denied. You can search by address instead.';
+      }, { enableHighAccuracy: true, timeout: 12000, maximumAge: 0 });
+    });
+
+    btnAddr?.addEventListener('click', async () => {
+      clearUI();
+      const a = (addrEl.value || '').trim();
+      if (!a) { notice.textContent = 'Please type an address, city, or ZIP.'; return; }
+      notice.textContent = 'Finding closest volunteers...';
+      try {
+        const res = await fetch(`${SCRIPT_URL}?address=${encodeURIComponent(a)}&limit=${TOP_N}`, { cache: 'no-store' });
+        await renderResults(res);
+      } catch (e) { showError(e); }
+    });
+
+    async function renderResults(res) {
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const ct = res.headers.get('content-type') || '';
+      if (!ct.includes('application/json')) throw new Error('Unexpected response type.');
+      const rows = await res.json();
+
+      if (!Array.isArray(rows) || rows.length === 0) {
+        notice.textContent = 'No volunteers found near that location.';
+        return;
+      }
+      notice.textContent = `Showing the ${Math.min(rows.length, TOP_N)} closest volunteers:`;
+      results.innerHTML = rows.map(renderCard).join('');
+    }
+
+    function renderCard(r) {
+      const name = esc(r['Full Name'] || 'Name N/A');
+      const phone = esc(r['Phone'] || 'Phone N/A');
+      const city = esc(r['City'] || '');
+      const state = esc(r['State'] || '');
+      const miles = typeof r['Distance'] === 'number'
+        ? `${Number(r['Distance']).toFixed(1)} mi`
+        : '';
+
+      const email = esc(r['Email'] || '');
+      const vehicle = esc(r['Vehicle'] || r['Rig'] || '');
+      const equipment = esc(r['Equipment'] || r['Gear'] || '');
+
+      const telHref   = phone && phone !== 'Phone N/A' ? `href="tel:${phone.replace(/[^0-9+]/g,'')}"` : '';
+      const emailHref = email ? `href="mailto:${email}"` : '';
+
+      return `
+        <div class="card card-compact">
+          <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+            <div>
+              <strong>${name}</strong> ${miles ? `<span class="helper">• ${miles}</span>` : ''}
+              <div class="helper">${city}${city && state ? ', ' : ''}${state}</div>
+              ${vehicle ? `<div class="helper">Vehicle: ${vehicle}</div>` : ''}
+              ${equipment ? `<div class="helper">Gear: ${equipment}</div>` : ''}
+            </div>
+            <div style="display:flex;gap:8px;align-items:center">
+              ${telHref ? `<a class="btn btn-primary" ${telHref}>Call</a>` : ''}
+              ${emailHref ? `<a class="btn" ${emailHref}>Email</a>` : ''}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function clearUI(){ results.innerHTML=''; notice.textContent=''; }
+    function showError(e){ notice.textContent='Could not load results. Try again.'; console.error(e); }
+    function esc(s){ return String(s||'').replace(/[&<>"']/g,m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[m])); }
+  </script>
+
   <script src="/site.js" defer></script>
 </body>
 </html>
