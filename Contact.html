@@ -1,89 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us – Free Off-Road Recovery | FreeOffRoadRecovery.org</title>
-  <meta name="description" content="Contact Free Off-Road Recovery for website questions or listing updates. Public bulletin board connecting people who need off-road help with volunteers." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact • Free Off-Road Recovery</title>
+  <meta name="description" content="Contact Free Off-Road Recovery. Reach out with questions, feedback, or to volunteer." />
   <link rel="icon" href="/favicon.ico" />
-  <style>
-    :root{
-      --bg:#F3F0E7; --fg:#1F2A24; --accent:#D97706; --muted:#5D665F;
-      --card:#FFFFFF; --border:#E3E0D6; --brand:#2F6B3E; --brand-dark:#1E4D2B;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.65}
-    .wrap{max-width:980px;margin:40px auto;padding:0 20px}
-    h1,h2,h3{margin:0 0 .5rem}
-    h2{color:var(--brand-dark)}
-    p{margin:.5rem 0 1rem}
-    a{color:var(--brand-dark);text-decoration:underline}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin:16px 0}
-    .note{font-size:.95rem;color:var(--muted)}
-    .small{font-size:.9rem}
-    .hr{height:1px;background:var(--border);border:0;margin:20px 0}
-    .hidden{position:absolute;left:-9999px}
-  </style>
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-  <div class="wrap">
-    <h1 class="hidden">Free Off-Road Recovery Contact Page</h1>
+  <!-- Header + Menu auto-injected by site.js -->
 
-    <h2>Contact Us</h2>
-    <p>Have a question about the website, a listing update, or a suggestion? Email
-      <strong><a href="mailto:CONTACT_EMAIL">CONTACT_EMAIL</a></strong>.
-    </p>
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-card">
+          <h1>Contact Us</h1>
+          <p>
+            Have questions, feedback, or want to join as a volunteer?  
+            Use the form or email link below to get in touch.
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <div class="card">
-      <h3>Need Recovery Help Now?</h3>
-      <p><strong>Do not email for time-sensitive recovery requests.</strong></p>
-      <ul>
-        <li><strong>Post in our bulletin board:</strong> <a href="FACEBOOK_GROUP_URL" target="_blank" rel="noopener">FACEBOOK_GROUP_NAME</a></li>
-        <li><strong>Use the request form:</strong> <a href="REQUEST_FORM_URL">REQUEST_FORM_URL</a> <span class="note">(coming soon)</span></li>
-        <li><strong>Check the volunteer map:</strong> <a href="find.html">Find Volunteers</a></li>
-      </ul>
-      <p class="note">Volunteers are independent individuals. There is no dispatch service and no guaranteed response time.</p>
+    <!-- Contact Info -->
+    <section class="section">
+      <div class="wrap">
+        <div class="card">
+          <h2 style="margin-top:0">Get in Touch</h2>
+          <p>Email: <a href="mailto:info@freeoffroadrecovery.com">info@freeoffroadrecovery.com</a></p>
+          <p>Facebook: <a href="https://facebook.com/FreeOffRoadRecovery" target="_blank">Free Off-Road Recovery</a></p>
+          <p>Volunteer Signup: <a href="/post.html">Submit your info here</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="section">
+      <div class="wrap">
+        <div class="card">
+          <h2 style="margin-top:0">Send a Message</h2>
+          <p>You can also send us a message directly:</p>
+
+          <!-- Replace this iframe with your own Google Form embed if you want -->
+          <iframe 
+            src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true" 
+            width="100%" 
+            height="500" 
+            frameborder="0" 
+            marginheight="0" 
+            marginwidth="0"
+            style="border:0;">
+            Loading…
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      © <span id="yr"></span> Free Off-Road Recovery
     </div>
+  </footer>
 
-    <div class="card">
-      <h3>What This Page Is</h3>
-      <ul>
-        <li>A free public bulletin board that connects people needing off-road recovery with volunteers</li>
-        <li>No professional help is offered. Skill and experience vary by volunteer</li>
-        <li>Both the recoveree and the recoverer act at their own risk</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>Safety and Legal Basics</h3>
-      <ul>
-        <li>Practice safe operations during any recovery</li>
-        <li>No operating or recovering a vehicle while under the influence</li>
-        <li>Obey property laws. Get permission to access non-public areas</li>
-        <li>Only recover a vehicle with the owner present and consenting</li>
-        <li>Take clear before and after photos</li>
-        <li>This is a free service. No compensation may be demanded for standard recoveries</li>
-      </ul>
-      <p class="small note">Nothing on this site is professional instruction.</p>
-    </div>
-
-    <div class="card">
-      <h3>Posting Guidance for Requests</h3>
-      <ul>
-        <li>Share multiple photos of the vehicle and surroundings</li>
-        <li>Drop a pin and include access directions and landmarks</li>
-        <li>State permission to access the area if relevant</li>
-        <li>List preferred or allowed recovery methods and gear if you have a preference</li>
-        <li>When finished, edit your post title to add <strong>RECOVERED</strong></li>
-      </ul>
-    </div>
-
-    <hr class="hr" />
-
-    <div class="small note">
-      <p><strong>Disclaimer:</strong> By using this website or posting in associated groups you consent to the posted rules. Volunteers and requesters assume all risk. The site and admins are not liable for actions taken by users.</p>
-      <p>Media or legal inquiries: <a href="mailto:CONTACT_EMAIL">CONTACT_EMAIL</a></p>
-    </div>
-  </div>
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+  <script src="/site.js" defer></script>
 </body>
 </html>
