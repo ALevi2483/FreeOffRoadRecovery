@@ -76,6 +76,11 @@
             <button id="btnAddrFind" class="btn">Search by address</button>
           </div>
 
+          <!-- Text-first tip -->
+          <div class="helper" style="margin:0 0 10px;">
+            Many volunteers screen unknown numbers. Start with a text that includes your name, a GPS pin, terrain details, and your vehicle info. You can follow up with a call if needed.
+          </div>
+
           <div id="closestNotice" class="helper" style="margin:6px 0 12px;"></div>
           <div id="closestResults" class="results-grid"></div>
 
@@ -165,7 +170,7 @@
 
     function renderCard(r) {
       const name = esc(r['Full Name'] || 'Name N/A');
-      const phone = esc(r['Phone'] || 'Phone N/A');
+      const phoneRaw = esc(r['Phone'] || 'Phone N/A');
       const city = esc(r['City'] || '');
       const state = esc(r['State'] || '');
       const miles = typeof r['Distance'] === 'number'
@@ -176,7 +181,7 @@
       const vehicle = esc(r['Vehicle'] || r['Rig'] || '');
       const equipment = esc(r['Equipment'] || r['Gear'] || '');
 
-      const telHref   = phone && phone !== 'Phone N/A' ? `href="tel:${phone.replace(/[^0-9+]/g,'')}"` : '';
+      // Keep email as a simple action; phone is shown as text (no Call button)
       const emailHref = email ? `href="mailto:${email}"` : '';
 
       return `
@@ -187,10 +192,11 @@
               <div class="helper">${city}${city && state ? ', ' : ''}${state}</div>
               ${vehicle ? `<div class="helper">Vehicle: ${vehicle}</div>` : ''}
               ${equipment ? `<div class="helper">Gear: ${equipment}</div>` : ''}
+              ${phoneRaw && phoneRaw !== 'Phone N/A' ? `<div class="helper">Phone: <span>${phoneRaw}</span></div>` : ''}
+              ${email ? `<div class="helper">Email: <a ${emailHref}>${email}</a></div>` : ''}
             </div>
             <div style="display:flex;gap:8px;align-items:center">
-              ${telHref ? `<a class="btn btn-primary" ${telHref}>Call</a>` : ''}
-              ${emailHref ? `<a class="btn" ${emailHref}>Email</a>` : ''}
+              ${email ? `<a class="btn" ${emailHref}>Email</a>` : ''}
             </div>
           </div>
         </div>
