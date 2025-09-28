@@ -1,82 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Free Off-Road Recovery – Volunteer Directory</title>
-  <meta name="description" content="Find volunteer off-road recovery help across the U.S. Browse the map, request help, read FAQs, and contact the team. Public bulletin board, no professional services offered." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Free Off-Road Recovery</title>
+  <meta name="description" content="Community powered off-road recoveries for stuck vehicles. Connect with volunteers and get unstuck safely." />
   <link rel="icon" href="/favicon.ico" />
-  <style>
-    :root{
-      --bg:#F3F0E7;        /* sand */
-      --surface:#FFFFFF;   /* card */
-      --ink:#1F2A24;       /* forest */
-      --muted:#5D665F;
-      --brand:#2F6B3E;     /* trail green */
-      --brand-dark:#1E4D2B;
-      --accent:#D97706;    /* amber */
-      --border:#E3E0D6;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg)}
-    header{
-      background:linear-gradient(180deg,var(--brand-dark),var(--brand));
-      color:#fff;padding:16px;text-align:center;font-size:1.8rem;font-weight:700;letter-spacing:.2px
-    }
-    nav{background:var(--brand);display:flex;justify-content:center;align-items:center;flex-wrap:wrap}
-    .nav-links{display:flex;flex-wrap:wrap;justify-content:center;width:100%;max-width:1200px}
-    .nav-links a{
-      color:#fff;padding:14px 16px;text-decoration:none;font-weight:700;
-      border-left:1px solid rgba(255,255,255,.08)
-    }
-    .nav-links a:hover{background:var(--brand-dark)}
-    .hamburger{
-      display:none;font-size:1.5rem;cursor:pointer;padding:.5rem 1rem;color:#fff;font-weight:700;
-      border:2px solid rgba(255,255,255,.85);border-radius:6px;margin:.5rem auto
-    }
-    iframe{
-      width:100%;height:calc(100vh - 132px);border:none;background:var(--surface)
-    }
-    @media (max-width:768px){
-      .nav-links{flex-direction:column;display:none}
-      .nav-links.show{display:flex}
-      .hamburger{display:block}
-      .nav-links a{border-left:none;border-top:1px solid rgba(255,255,255,.15)}
-      iframe{height:calc(100vh - 196px)}
-    }
-    .bar{
-      background:#E7F1EA;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-      color:#35433B;text-align:center;font-size:.95rem;padding:6px 10px
-    }
-    .hidden-h1{position:absolute;left:-9999px}
-  </style>
+  <link rel="stylesheet" href="/styles.css" />
 </head>
+
 <body>
-  <h1 class="hidden-h1">Free Off-Road Recovery Site Navigation</h1>
-
-  <header>Free Off-Road Recovery</header>
-
-  <nav>
-    <div class="hamburger" onclick="toggleMenu()">☰ Menu</div>
-    <div class="nav-links" id="navLinks">
-      <a href="home.html" target="contentFrame" onclick="closeMenu()">Home</a>
-      <a href="find.html" target="contentFrame" onclick="closeMenu()">Find Volunteers</a>
-      <a href="reviews.html" target="contentFrame" onclick="closeMenu()">Reviews</a>
-      <a href="FAQ.html" target="contentFrame" onclick="closeMenu()">FAQ</a>
-      <a href="Contact.html" target="contentFrame" onclick="closeMenu()">Contact</a>
+  <!-- Small brand in the sticky header (keep this) -->
+  <header class="site-header">
+    <div class="header-wrap">
+      <a class="brand" href="/">
+        <span class="brand-badge" aria-hidden="true"></span>
+        <span>Free Off-Road Recovery</span>
+      </a>
+      <button class="menu-btn" aria-label="Open menu">☰ Menu</button>
     </div>
-  </nav>
+  </header>
 
-  <div class="bar">Community powered recoveries. Use at your own risk. Read the FAQ before posting.</div>
+  <main>
+    <!-- Hero block. Do NOT add another giant H1 that just repeats the site name -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-card">
+          <h1>Get Unstuck With Community Help</h1>
+          <p>We connect drivers with volunteers for no-cost off-road recovery. Public bulletin board. No professional services offered.</p>
+          <p style="margin-top:18px">
+            <a class="btn btn-primary" href="/find.html">🔎 Find Volunteers</a>
+          </p>
+        </div>
+      </div>
+    </section>
 
-  <iframe src="home.html" name="contentFrame" title="Content"></iframe>
+    <!-- Optional info section -->
+    <section class="section">
+      <div class="wrap">
+        <div class="card">
+          <h2 style="margin-top:0">How It Works</h2>
+          <ol>
+            <li>Check the volunteer map and contact the closest helpers.</li>
+            <li>Share your GPS location, terrain type, and vehicle details.</li>
+            <li>Wait in a safe spot. You are responsible for your own safety and property.</li>
+          </ol>
+          <p style="color:var(--muted)">Use at your own risk. Read the FAQ before posting.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">© <span id="yr"></span> Free Off-Road Recovery</div>
+  </footer>
 
   <script>
-    function toggleMenu(){document.getElementById('navLinks').classList.toggle('show')}
-    function closeMenu(){
-      const nav=document.getElementById('navLinks');
-      if(window.innerWidth<=768 && nav.classList.contains('show')) nav.classList.remove('show');
-    }
+    document.getElementById('yr').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
