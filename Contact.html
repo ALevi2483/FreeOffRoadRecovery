@@ -7,67 +7,65 @@
   <meta name="description" content="Contact Free Off-Road Recovery. Reach out with questions, feedback, or to volunteer." />
   <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Social -->
+  <meta property="og:title" content="Contact • Free Off-Road Recovery" />
+  <meta property="og:description" content="Reach out to Free Off-Road Recovery with questions or feedback." />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta property="og:type" content="website" />
+
+  <style>
+    .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+    .contact-list p{margin:6px 0}
+  </style>
 </head>
 <body>
   <!-- Header + Menu auto-injected by site.js -->
 
   <main>
-    <!-- Hero -->
-    <section class="hero">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
       <div class="wrap">
         <div class="hero-card">
-          <h1>Contact Us</h1>
-          <p>
-            Have questions, feedback, or want to join as a volunteer?  
-            Use the form or email link below to get in touch.
-          </p>
+          <h1 id="hero-title">Contact Us</h1>
+          <p>Have questions, feedback, or want to join as a volunteer? Use the info below to reach out.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="/volunteer.html">✋ Become a Volunteer</a>
+            <a class="btn" href="/FAQ.html">📖 Read the FAQ</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Info -->
+    <!-- CONTACT INFO -->
     <section class="section">
       <div class="wrap">
-        <div class="card">
-          <h2 style="margin-top:0">Get in Touch</h2>
-          <p>Email: <a href="mailto:info@freeoffroadrecovery.com">info@freeoffroadrecovery.com</a></p>
-          <p>Facebook: <a href="https://facebook.com/FreeOffRoadRecovery" target="_blank">Free Off-Road Recovery</a></p>
-          <p>Volunteer Signup: <a href="/post.html">Submit your info here</a></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Form -->
-    <section class="section">
-      <div class="wrap">
-        <div class="card">
-          <h2 style="margin-top:0">Send a Message</h2>
-          <p>You can also send us a message directly:</p>
-
-          <!-- Replace this iframe with your own Google Form embed if you want -->
-          <iframe 
-            src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true" 
-            width="100%" 
-            height="500" 
-            frameborder="0" 
-            marginheight="0" 
-            marginwidth="0"
-            style="border:0;">
-            Loading…
-          </iframe>
+        <div class="card contact-list">
+          <h2 style="margin-top:0">Ways to Reach Us</h2>
+          <p><strong>Email:</strong> <a href="mailto:info@freeoffroadrecovery.com">info@freeoffroadrecovery.com</a></p>
+          <p><strong>Facebook:</strong> <a href="https://facebook.com/FreeOffRoadRecovery" target="_blank">Free Off-Road Recovery</a></p>
+          <p><strong>Volunteer Signup:</strong> <a href="/volunteer.html">Submit your info here</a></p>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="wrap">
-      © <span id="yr"></span> Free Off-Road Recovery
-    </div>
+    <div class="wrap">© <span id="yr"></span> Free Off-Road Recovery</div>
   </footer>
 
   <script>
+    // Footer year
     document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Exact menu (case sensitive to your files)
+    window.MENU_LINKS = [
+      { href: '/home.html',      label: 'Home' },
+      { href: '/find.html',      label: 'Find Volunteers' },
+      { href: '/volunteer.html', label: 'Become a Volunteer' },
+      { href: '/FAQ.html',       label: 'FAQ' },
+      { href: '/Contact.html',   label: 'Contact' }
+    ];
   </script>
   <script src="/site.js" defer></script>
 </body>
