@@ -4,76 +4,145 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Find Volunteers • Free Off-Road Recovery</title>
-  <meta name="description" content="Locate volunteers near you for community-powered off-road recovery. Use the interactive map or directory." />
+  <meta name="description" content="Locate off-road recovery volunteers near you. Use the interactive map or browse a directory. Free, community based help." />
   <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Social -->
+  <meta property="og:title" content="Find Volunteers • Free Off-Road Recovery" />
+  <meta property="og:description" content="Use the map to contact local volunteers for no cost recoveries." />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta property="og:type" content="website" />
+
+  <!-- Page-only tweaks -->
+  <style>
+    .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+    .helper{color:var(--muted);font-size:.95rem}
+    .grid{display:grid;gap:16px}
+    @media (min-width: 900px){ .grid{grid-template-columns: 2fr 1fr} }
+    .map-shell{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+    .map-header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--border)}
+    .map-body{min-height:480px}
+    .tip{background:#f7f3ea;border:1px solid #ebe5d7;border-radius:10px;padding:10px;margin-top:10px}
+    .callout{background:#fff3e8;border:1px solid #ffe1c8;border-radius:12px;padding:14px}
+    .card h3{margin:0 0 8px}
+    .how li{margin:6px 0}
+    .dir-embed{border:1px solid var(--border);border-radius:12px;overflow:hidden}
+    .dir-embed iframe{display:block;width:100%;height:420px;border:0}
+  </style>
 </head>
 <body>
   <!-- Header + Menu auto-injected by site.js -->
 
   <main>
-    <!-- Hero -->
-    <section class="hero">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
       <div class="wrap">
         <div class="hero-card">
-          <h1>Find Volunteers</h1>
-          <p>
-            Search for off-road recovery volunteers near your location. 
-            Use the map or directory below to connect with community helpers.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Volunteer Map / Directory -->
-    <section class="section">
-      <div class="wrap">
-        <div class="card">
-          <h2 style="margin-top:0">Volunteer Map</h2>
-          <p>Use the interactive map below to locate recovery volunteers in your area.</p>
-
-          <!-- Replace the iframe below with your actual Google Map or app embed -->
-          <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-top:12px;">
-            <iframe 
-              src="https://www.google.com/maps/d/embed?mid=YOUR_CUSTOM_MAP_ID" 
-              width="100%" 
-              height="480" 
-              style="border:0;"
-              allowfullscreen=""
-              loading="lazy">
-            </iframe>
+          <h1 id="hero-title">Find Volunteers</h1>
+          <p>Use the map to contact nearby volunteers for no cost off-road recoveries. Share a GPS pin, terrain, and vehicle details.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="/volunteer.html">Become a Volunteer</a>
+            <a class="btn" href="/FAQ.html">Read the FAQ</a>
           </div>
+          <p class="helper">This site is a public bulletin board. Use at your own risk.</p>
         </div>
       </div>
     </section>
 
-    <!-- Directory list (optional) -->
+    <!-- MAP + SIDEBAR -->
+    <section class="section">
+      <div class="wrap">
+        <div class="grid">
+          <!-- Map panel -->
+          <div class="map-shell" role="region" aria-label="Volunteer map">
+            <div class="map-header">
+              <strong>Volunteer Map</strong>
+              <span class="helper">Paste your Google Map embed below</span>
+            </div>
+            <div class="map-body" id="map-embed">
+              <!-- ====== GOOGLE MAP PLACEHOLDER START ======
+                   Replace this entire comment block with your Google My Maps or Maps embed iframe.
+                   Example:
+                   <iframe
+                     src="https://www.google.com/maps/d/embed?mid=YOUR_CUSTOM_MAP_ID"
+                     width="100%"
+                     height="100%"
+                     loading="lazy"
+                     style="border:0"
+                     allowfullscreen>
+                   </iframe>
+                   ====== GOOGLE MAP PLACEHOLDER END ====== -->
+            </div>
+            <div class="tip">
+              Tip: If the map does not load, try refreshing the page or open the map in a new tab.
+            </div>
+          </div>
+
+          <!-- Sidebar: How to use + Safety -->
+          <aside class="card">
+            <h3>How to use</h3>
+            <ol class="how">
+              <li>Open the map and find nearby volunteers.</li>
+              <li>Contact one or more directly.</li>
+              <li>Share a GPS pin, vehicle details, terrain, and hazards.</li>
+              <li>Agree on a safe meet up plan.</li>
+            </ol>
+
+            <h3 style="margin-top:12px">What to share</h3>
+            <ul>
+              <li>GPS coordinates or a dropped pin</li>
+              <li>Make and model, recovery points, tire size</li>
+              <li>Terrain and hazards: mud depth, water, snow, slope</li>
+              <li>Gear on hand: straps, boards, winch, shackles</li>
+            </ul>
+
+            <div class="callout" style="margin-top:12px">
+              <strong>Safety first</strong>
+              <ul style="margin:8px 0 0 18px">
+                <li>If anyone is in danger, call 911.</li>
+                <li>Stand clear of straps, lines, and snap back zones.</li>
+                <li>Use proper recovery points. Avoid tow balls.</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPTIONAL DIRECTORY -->
     <section class="section">
       <div class="wrap">
         <div class="card">
-          <h2 style="margin-top:0">Volunteer Directory</h2>
-          <p>Browse a list of volunteers by state or region:</p>
-          
-          <!-- Example directory block. Replace with your Google Sheet embed or generated list -->
-          <iframe 
-            src="https://docs.google.com/spreadsheets/d/e/YOUR_SHEET_ID/pubhtml?widget=true&amp;headers=false" 
-            width="100%" 
-            height="400"
-            style="border:0;">
-          </iframe>
+          <h2 style="margin-top:0">Volunteer Directory (optional)</h2>
+          <p class="helper">If you will publish a simple list, paste your Google Sheet embed below. You can delete this section if you do not need it.</p>
+          <div class="dir-embed">
+            <!-- ====== GOOGLE SHEET PLACEHOLDER START ======
+                 Replace the iframe below with your published Google Sheet embed when ready.
+                 <iframe src="https://docs.google.com/spreadsheets/d/e/YOUR_SHEET_ID/pubhtml?widget=true&amp;headers=false"></iframe>
+                 ====== GOOGLE SHEET PLACEHOLDER END ====== -->
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="wrap">
-      © <span id="yr"></span> Free Off-Road Recovery
-    </div>
+    <div class="wrap">© <span id="yr"></span> Free Off-Road Recovery</div>
   </footer>
 
   <script>
+    // Footer year
     document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Exact menu (case sensitive to your files)
+    window.MENU_LINKS = [
+      { href: '/home.html',      label: 'Home' },
+      { href: '/find.html',      label: 'Find Volunteers' },
+      { href: '/volunteer.html', label: 'Become a Volunteer' },
+      { href: '/FAQ.html',       label: 'FAQ' },
+      { href: '/Contact.html',   label: 'Contact' }
+    ];
   </script>
   <script src="/site.js" defer></script>
 </body>
