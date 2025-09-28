@@ -1,84 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Free Off-Road Recovery – Home</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root{
-      --bg:#F3F0E7; --surface:#FFFFFF; --ink:#1F2A24; --muted:#5D665F;
-      --brand:#2F6B3E; --brand-dark:#1E4D2B; --accent:#D97706; --border:#E3E0D6;
-    }
-    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);margin:0;line-height:1.7}
-    .banner{background:var(--brand-dark);color:#fff;padding:20px;text-align:center;font-size:1.5rem;font-weight:600}
-    .content-wrapper{max-width:1000px;margin:0 auto;padding:20px}
-    .hero{
-      background:#E7F1EA;padding:46px 20px;border-radius:12px;text-align:center;margin-bottom:46px;
-      box-shadow:0 2px 8px rgba(0,0,0,.06)
-    }
-    .hero h1{color:var(--brand-dark);font-size:2.4rem;margin:0 0 12px}
-    .hero p{font-size:1.12rem;color:#37443B;margin:0 0 26px}
-    .hero a button{
-      padding:14px 28px;background:var(--brand);color:#fff;border:none;border-radius:8px;
-      font-size:1.05rem;font-weight:700;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,.12);
-      transition:transform .15s ease, background .15s ease; margin:6px
-    }
-    .hero a button:hover{background:var(--brand-dark);transform:translateY(-1px)}
-    .section{margin-bottom:40px}
-    .section:nth-child(even){background:#FFF;border:1px solid var(--border);padding:24px;border-radius:10px}
-    .section h2{color:var(--brand-dark);font-size:1.5rem;margin:0 0 10px;display:flex;align-items:center;gap:10px}
-    .section p{color:#3b463f;margin:.25rem 0}
-    blockquote{border-left:4px solid var(--accent);padding-left:14px;margin:16px 0;color:#4b524c;font-style:italic;background:#FFF7E8;border-radius:6px}
-    a{color:var(--brand-dark);font-weight:600;text-decoration:none}
-    a:hover{text-decoration:underline}
-    footer{text-align:center;font-size:.9rem;color:var(--muted);margin:48px 0 18px}
-    @media (max-width:600px){.hero h1{font-size:1.9rem}.hero p{font-size:1rem}.hero a button{width:100%}}
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home • Free Off-Road Recovery</title>
+  <meta name="description" content="Welcome to Free Off-Road Recovery. Connect with volunteers to get help when you’re stuck off-road." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-  <div class="banner">Free Off-Road Recovery</div>
-  <div class="content-wrapper">
-    <div class="hero">
-      <h1>Get Unstuck With Community Help</h1>
-      <p>We connect drivers with volunteers for no-cost off-road recovery. Public bulletin board. No professional services offered.</p>
-      <a href="/find.html"><button>🔍 Find Volunteers</button></a>
-      <a href="REQUEST_FORM_URL" target="_blank"><button>🆘 Request Help</button></a>
-      <a href="/FAQ.html"><button>❓ FAQ</button></a>
+  <!-- Header + Menu are auto-injected by site.js -->
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-card">
+          <h1>Welcome to Free Off-Road Recovery</h1>
+          <p>
+            Community-powered off-road recovery. Whether you’re stuck in mud, sand, or snow, 
+            volunteers in your area can help at no cost.
+          </p>
+          <p style="margin-top:18px">
+            <a class="btn btn-primary" href="/find.html">🔎 Find Volunteers</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick links -->
+    <section class="section">
+      <div class="wrap">
+        <div class="card">
+          <h2 style="margin-top:0">Get Started</h2>
+          <ul>
+            <li><a href="/find.html">Find volunteers near you</a></li>
+            <li><a href="/post.html">Post a recovery request</a></li>
+            <li><a href="/faq.html">Read the FAQ</a></li>
+            <li><a href="/about.html">Learn more about this project</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      © <span id="yr"></span> Free Off-Road Recovery
     </div>
+  </footer>
 
-    <div class="section">
-      <h2>🚙 How It Works</h2>
-      <p>Post your situation with photos and a pinned location or use our directory to locate nearby volunteers. There is no dispatch center and response times vary.</p>
-      <p><a href="/find.html">Search by state and city</a> or view the volunteer map on the Find page.</p>
-    </div>
-
-    <div class="section">
-      <h2>🧭 Safety First</h2>
-      <p>Everyone participates at their own risk. Do not operate or recover a vehicle while under the influence. Get permission for private property. Take before and after photos. If a situation is dangerous or life threatening, call 911.</p>
-      <p>Read the <a href="/FAQ.html">FAQ</a> and <a href="/terms.html">Terms</a> before you post.</p>
-    </div>
-
-    <div class="section">
-      <h2>🤝 Become a Volunteer</h2>
-      <p>Have recovery gear and want to help nearby drivers? <a href="VOLUNTEER_FORM_URL" target="_blank">Apply to be listed</a>. Use a public landmark for your pin if you prefer not to share your home address.</p>
-    </div>
-
-    <div class="section">
-      <h2>💬 Community Feedback</h2>
-      <blockquote>“Got buried to the frame in sugar sand. A volunteer saw my post and had me out in 20 minutes. Huge thanks.” – Jason W., Texas</blockquote>
-      <p><a href="/reviews.html">Read more reviews</a> · <a href="REVIEW_FORM_URL" target="_blank">Leave a review</a></p>
-    </div>
-
-    <div class="section">
-      <h2>📢 Join the Conversation</h2>
-      <p>Our public bulletin board is where most requests start. Share clear photos, a dropped pin, access directions, and any hazards.</p>
-      <p><a href="FACEBOOK_GROUP_URL" target="_blank">Open the Facebook Group</a> · <a href="CHAT_GROUP_URL" target="_blank">Open the Chat Group</a></p>
-    </div>
-
-    <div class="section" style="font-size:.95rem">🔧 Found a bad listing or broken link? <a href="/Contact.html">Tell us here</a>.</div>
-
-    <footer>© 2025 Free Off-Road Recovery · Volunteer run · <a href="/disclaimer.html">Disclaimer</a> · <a href="/privacy.html">Privacy</a></footer>
-  </div>
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+  <script src="/site.js" defer></script>
 </body>
 </html>
