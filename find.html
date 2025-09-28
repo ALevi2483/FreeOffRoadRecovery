@@ -4,122 +4,76 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Find Volunteers • Free Off-Road Recovery</title>
-  <meta name="description" content="Locate off-road recovery volunteers near you. Use the interactive map or browse a directory. Free, community based help." />
+  <meta name="description" content="Zoom in on the map and click the nearest pin to contact a volunteer." />
   <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Social -->
-  <meta property="og:title" content="Find Volunteers • Free Off-Road Recovery" />
-  <meta property="og:description" content="Use the map to contact local volunteers for no-cost recoveries." />
-  <meta property="og:image" content="/og-image.jpg" />
-  <meta property="og:type" content="website" />
-
-  <!-- Page-only tweaks -->
   <style>
-    .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
-    .helper{color:var(--muted);font-size:.95rem}
-    .grid{display:grid;gap:16px}
-    @media (min-width: 900px){ .grid{grid-template-columns: 2fr 1fr} }
-    .map-shell{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden}
-    .map-header{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--border)}
-    .map-body{min-height:520px;position:relative}
-    .map-body iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-    .tip{background:#f7f3ea;border:1px solid #ebe5d7;border-radius:10px;padding:10px;margin-top:10px}
-    .callout{background:#fff3e8;border:1px solid #ffe1c8;border-radius:12px;padding:14px}
-    .card h3{margin:0 0 8px}
-    .how li{margin:6px 0}
-    .dir-embed{border:1px solid var(--border);border-radius:12px;overflow:hidden}
-    .dir-embed iframe{display:block;width:100%;height:420px;border:0}
+    /* Page-only styles */
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 14px; }
+    .instructions {
+      background: #fff;
+      border: 1px solid var(--border, #e5e7eb);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin: 14px auto;
+      color: var(--muted, #6b7280);
+      font-size: .98rem;
+    }
+    .map-box {
+      position: relative;
+      border: 1px solid var(--border, #e5e7eb);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      height: 72vh; /* fills most of the screen without scrolling */
+      min-height: 420px;
+    }
+    .map-box iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .map-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px 0 0;
+      font-size: .95rem;
+    }
+    .map-actions a { color: var(--brand, #14532d); text-decoration: underline; }
   </style>
 </head>
 <body>
   <!-- Header + Menu auto-injected by site.js -->
 
-  <main>
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="wrap">
-        <div class="hero-card">
-          <h1 id="hero-title">Find Volunteers</h1>
-          <p>Use the map to contact nearby volunteers for no cost off-road recoveries. Share a GPS pin, terrain, and vehicle details.</p>
-          <div class="btn-row">
-            <a class="btn btn-primary" href="/volunteer.html">Become a Volunteer</a>
-            <a class="btn" href="/FAQ.html">Read the FAQ</a>
-          </div>
-          <p class="helper">This site is a public bulletin board. Use at your own risk.</p>
-        </div>
+  <main class="section">
+    <div class="wrap">
+      <h1 style="margin: 8px 0 10px">Find Volunteers</h1>
+
+      <div class="instructions">
+        Zoom in on your area and click the nearest pin to view the volunteer’s name and contact info.
       </div>
-    </section>
 
-    <!-- MAP + SIDEBAR -->
-    <section class="section">
-      <div class="wrap">
-        <div class="grid">
-          <!-- Map panel -->
-          <div class="map-shell" role="region" aria-label="Volunteer map">
-            <div class="map-header">
-              <strong>Volunteer Map</strong>
-              <a class="helper" href="https://www.google.com/maps/d/viewer?mid=1OIfAV-mmB025_Rr_huHgUjIzgE9XG_E&ll=0,0&z=2" target="_blank" rel="noopener">Open in Google Maps</a>
-            </div>
-            <div class="map-body" id="map-embed">
-              <!-- Embedded Google My Maps -->
-              <iframe
-                src="https://www.google.com/maps/d/embed?mid=1OIfAV-mmB025_Rr_huHgUjIzgE9XG_E&ehbc=2E312F&noprof=1"
-                loading="lazy"
-                allowfullscreen
-                referrerpolicy="no-referrer-when-downgrade">
-              </iframe>
-            </div>
-            <div class="tip">
-              Tip: If the map does not load, refresh the page or use the “Open in Google Maps” link above.
-            </div>
-          </div>
-
-          <!-- Sidebar: How to use + Safety -->
-          <aside class="card">
-            <h3>How to use</h3>
-            <ol class="how">
-              <li>Open the map and find nearby volunteers.</li>
-              <li>Contact one or more directly.</li>
-              <li>Share a GPS pin, vehicle details, terrain, and hazards.</li>
-              <li>Agree on a safe meet up plan.</li>
-            </ol>
-
-            <h3 style="margin-top:12px">What to share</h3>
-            <ul>
-              <li>GPS coordinates or a dropped pin</li>
-              <li>Make and model, recovery points, tire size</li>
-              <li>Terrain and hazards: mud depth, water, snow, slope</li>
-              <li>Gear on hand: straps, boards, winch, shackles</li>
-            </ul>
-
-            <div class="callout" style="margin-top:12px">
-              <strong>Safety first</strong>
-              <ul style="margin:8px 0 0 18px">
-                <li>If anyone is in danger, call 911.</li>
-                <li>Stand clear of straps, lines, and snap back zones.</li>
-                <li>Use proper recovery points. Avoid tow balls.</li>
-              </ul>
-            </div>
-          </aside>
-        </div>
+      <div class="map-box" role="region" aria-label="Volunteer map">
+        <iframe
+          src="https://www.google.com/maps/d/embed?mid=1OIfAV-mmB025_Rr_huHgUjIzgE9XG_E&ehbc=2E312F&noprof=1"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
-    </section>
 
-    <!-- OPTIONAL DIRECTORY -->
-    <section class="section">
-      <div class="wrap">
-        <div class="card">
-          <h2 style="margin-top:0">Volunteer Directory (optional)</h2>
-          <p class="helper">If you will publish a simple list, paste your Google Sheet embed below. You can delete this section if you do not need it.</p>
-          <div class="dir-embed">
-            <!-- Example (replace with your sheet embed if you want the list on-page):
-            <iframe src="https://docs.google.com/spreadsheets/d/e/YOUR_SHEET_ID/pubhtml?widget=true&amp;headers=false"></iframe>
-            -->
-          </div>
-        </div>
+      <div class="map-actions">
+        <span>Having trouble loading the map?</span>
+        <a href="https://www.google.com/maps/d/viewer?mid=1OIfAV-mmB025_Rr_huHgUjIzgE9XG_E&ll=0,0&z=2" target="_blank" rel="noopener">
+          Open in Google Maps
+        </a>
       </div>
-    </section>
+    </div>
   </main>
 
   <footer class="footer">
@@ -130,7 +84,7 @@
     // Footer year
     document.getElementById('yr').textContent = new Date().getFullYear();
 
-    // Exact menu (case sensitive to your files)
+    // Site menu (exact file names)
     window.MENU_LINKS = [
       { href: '/home.html',      label: 'Home' },
       { href: '/find.html',      label: 'Find Volunteers' },
