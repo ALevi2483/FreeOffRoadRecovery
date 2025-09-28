@@ -1,134 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Find Off-Road Recovery Volunteers | FreeOffRoadRecovery</title>
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    :root{
-      --bg:#F3F0E7; --card:#FFFFFF; --text:#1F2A24; --muted:#5D665F;
-      --brand:#2F6B3E; --brand-dark:#1E4D2B; --border:#E3E0D6;
-      --warn-bg:#FFF7E8; --warn-border:#D97706;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 Arial,Helvetica,sans-serif}
-    main{max-width:980px;margin:24px auto;padding:0 16px}
-    h1,h2{color:var(--brand-dark);margin:0 0 10px}
-    label{display:block;font-weight:700;margin:14px 0 6px}
-    select{width:100%;max-width:420px;padding:10px;border:1px solid var(--border);border-radius:8px;background:#fff}
-    .row{display:flex;gap:16px;flex-wrap:wrap}
-    .results{margin-top:16px;padding:12px;background:var(--card);border-radius:10px;border:1px solid var(--border);box-shadow:0 1px 4px rgba(0,0,0,.06)}
-    iframe{width:100%;height:760px;border:0;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
-    .disclaimer-link{font-size:.95rem;margin:10px 0;display:inline-block;color:var(--brand-dark);cursor:pointer;text-decoration:underline}
-    .disclaimer-box{display:none;background:var(--warn-bg);border:1px solid var(--warn-border);padding:14px;margin:8px 0 20px;border-radius:8px}
-    small{color:var(--muted)}
-    button{background:var(--brand);color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer}
-    button:hover{background:var(--brand-dark)}
-  </style>
+  <title>Find Volunteers • Free Off-Road Recovery</title>
+  <meta name="description" content="Locate volunteers near you for community-powered off-road recovery. Use the interactive map or directory." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
+  <!-- Header + Menu auto-injected by site.js -->
+
   <main>
-    <h1>Find Off-Road Recovery Volunteers</h1>
-
-    <a class="disclaimer-link" onclick="toggleDisclaimer()">📜 Read Disclaimer</a>
-    <div id="disclaimerBox" class="disclaimer-box">
-      <p><strong>DISCLAIMER:</strong> This directory is a public bulletin board connecting people in need of off-road recovery with volunteers. FreeOffRoadRecovery.org does not verify identity or skill. All parties act at their own risk. If you are uncomfortable with this, contact a professional towing service or local authorities.</p>
-      <button onclick="toggleDisclaimer()">Close</button>
-    </div>
-
-    <section>
-      <h2>Search by State and City</h2>
-      <div class="row">
-        <div>
-          <label for="stateSelect">Select State</label>
-          <select id="stateSelect"></select>
-        </div>
-        <div>
-          <label for="citySelect">Select City</label>
-          <select id="citySelect"></select>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-card">
+          <h1>Find Volunteers</h1>
+          <p>
+            Search for off-road recovery volunteers near your location. 
+            Use the map or directory below to connect with community helpers.
+          </p>
         </div>
       </div>
-      <div id="stateCityResults" class="results"></div>
     </section>
 
-    <section style="margin-top:28px;">
-      <h2>View Volunteers on the Map</h2>
-      <iframe src="YOUR_GOOGLE_MAP_EMBED_URL" allowfullscreen></iframe>
+    <!-- Volunteer Map / Directory -->
+    <section class="section">
+      <div class="wrap">
+        <div class="card">
+          <h2 style="margin-top:0">Volunteer Map</h2>
+          <p>Use the interactive map below to locate recovery volunteers in your area.</p>
+
+          <!-- Replace the iframe below with your actual Google Map or app embed -->
+          <div style="border:1px solid var(--border); border-radius:12px; overflow:hidden; margin-top:12px;">
+            <iframe 
+              src="https://www.google.com/maps/d/embed?mid=YOUR_CUSTOM_MAP_ID" 
+              width="100%" 
+              height="480" 
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Directory list (optional) -->
+    <section class="section">
+      <div class="wrap">
+        <div class="card">
+          <h2 style="margin-top:0">Volunteer Directory</h2>
+          <p>Browse a list of volunteers by state or region:</p>
+          
+          <!-- Example directory block. Replace with your Google Sheet embed or generated list -->
+          <iframe 
+            src="https://docs.google.com/spreadsheets/d/e/YOUR_SHEET_ID/pubhtml?widget=true&amp;headers=false" 
+            width="100%" 
+            height="400"
+            style="border:0;">
+          </iframe>
+        </div>
+      </div>
     </section>
   </main>
 
+  <footer class="footer">
+    <div class="wrap">
+      © <span id="yr"></span> Free Off-Road Recovery
+    </div>
+  </footer>
+
   <script>
-    const SCRIPT_URL='YOUR_APPS_SCRIPT_WEBAPP_URL';
-    let rows=[];
-
-    init();
-    async function init(){
-      setLoading(true); clearSelects();
-      try{
-        const res=await fetch(`${SCRIPT_URL}?mode=full`,{cache:'no-store'});
-        if(!res.ok) throw new Error(`HTTP ${res.status}`);
-        const ct=res.headers.get('content-type')||'';
-        if(!ct.includes('application/json')) throw new Error('Response was not JSON');
-        rows=(await res.json())||[];
-        const valid=rows.filter(r=>r && r.State && r.City);
-        const states=[...new Set(valid.map(r=>String(r.State).trim()))].sort();
-        const stateSelect=document.getElementById('stateSelect');
-        stateSelect.innerHTML=`<option value="">--Select State--</option>`+states.map(s=>`<option value="${escapeHtml(s)}">${escapeHtml(s)}</option>`).join('');
-        stateSelect.onchange=onStateChange;
-
-        const citySelect=document.getElementById('citySelect');
-        citySelect.innerHTML=`<option value="">--Select City--</option>`;
-        citySelect.onchange=onCityChange;
-
-        document.getElementById('stateCityResults').innerHTML=`<em>Select a state, then a city.</em>`;
-      }catch(err){
-        document.getElementById('stateCityResults').innerHTML=
-          `<em>Could not load directory. Verify your Apps Script deployment URL and permissions.<br><small>${escapeHtml(String(err))}</small></em>`;
-      }finally{ setLoading(false); }
-    }
-
-    function onStateChange(){
-      const state=document.getElementById('stateSelect').value;
-      const citySelect=document.getElementById('citySelect');
-      if(!state){
-        citySelect.innerHTML=`<option value="">--Select City--</option>`;
-        document.getElementById('stateCityResults').innerHTML=`<em>Select a state, then a city.</em>`;
-        return;
-      }
-      const cities=[...new Set(rows.filter(r=>r.State===state).map(r=>String(r.City).trim()))].sort();
-      citySelect.innerHTML=`<option value="">--Select City--</option>`+cities.map(c=>`<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join('');
-      document.getElementById('stateCityResults').innerHTML=`<em>Select a city.</em>`;
-    }
-
-    function onCityChange(){
-      const state=document.getElementById('stateSelect').value;
-      const city=document.getElementById('citySelect').value;
-      if(!state || !city) return;
-      const filtered=rows.filter(r=>r.State===state && r.City===city);
-      const html=filtered.length
-        ? filtered.map(r=>{
-            const name=r['Full Name']||'Name N/A';
-            const phone=r['Phone']||'Phone N/A';
-            const dist=r['Distance']?`<br><small>${r['Distance']} mi away</small>`:'';
-            return `<div><strong>${escapeHtml(name)}</strong> — ${escapeHtml(phone)}${dist}</div>`;
-          }).join('<br><br>')
-        : `<em>No volunteers found for this city.</em>`;
-      document.getElementById('stateCityResults').innerHTML=html;
-    }
-
-    function toggleDisclaimer(){
-      const box=document.getElementById('disclaimerBox');
-      box.style.display=getComputedStyle(box).display==='none'?'block':'none';
-    }
-    function clearSelects(){
-      document.getElementById('stateSelect').innerHTML=`<option value="">--Select State--</option>`;
-      document.getElementById('citySelect').innerHTML=`<option value="">--Select City--</option>`;
-    }
-    function setLoading(on){
-      const target=document.getElementById('stateCityResults');
-      if(on) target.innerHTML=`<em>Loading directory…</em>`;
-    }
-    function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+    document.getElementById('yr').textContent = new Date().getFullYear();
   </script>
+  <script src="/site.js" defer></script>
 </body>
 </html>
