@@ -1,11 +1,12 @@
 // Build a consistent header + drawer menu on every page
 document.addEventListener('DOMContentLoaded', () => {
+  // === YOUR MENU LINKS ===
   const links = [
-    { href: '/',            label: 'Home' },
-    { href: '/find.html',   label: 'Find Volunteers' },
-    { href: '/post.html',   label: 'Post a Request' },
-    { href: '/faq.html',    label: 'FAQ' },
-    { href: '/about.html',  label: 'About' }
+    { href: '/home.html',      label: 'Home' },
+    { href: '/find.html',      label: 'Find Volunteers' },
+    { href: '/volunteer.html', label: 'Become a Volunteer' },
+    { href: '/FAQ.html',       label: 'FAQ' },
+    { href: '/Contact.html',   label: 'Contact' }
   ];
 
   // Insert header at top of body (if not already present)
@@ -14,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     header.className = 'site-header';
     header.innerHTML = `
       <div class="header-wrap">
-        <a class="brand" href="/">
+        <a class="brand" href="/home.html">
           <span class="brand-badge" aria-hidden="true"></span>
           <span>Free Off-Road Recovery</span>
         </a>
@@ -49,14 +50,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add links
     const navLinks = drawer.querySelector('#navLinks');
-    const path = location.pathname.replace(/\/+$/, '') || '/';
+    const path = (location.pathname.replace(/\/+$/, '') || '/').toLowerCase();
     links.forEach(l => {
       const a = document.createElement('a');
       a.href = l.href;
       a.textContent = l.label;
-      // simple active state check
-      const normalized = l.href.replace(/\/+$/, '') || '/';
+
+      // simple active state check (case-insensitive for safety)
+      const normalized = (l.href.replace(/\/+$/, '') || '/').toLowerCase();
       if (normalized === path) a.classList.add('active');
+
       navLinks.appendChild(a);
     });
 
