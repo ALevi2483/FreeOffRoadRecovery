@@ -8,26 +8,19 @@
   <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
-
 <body>
-  <!-- Small brand in the sticky header (keep this) -->
-  <header class="site-header">
-    <div class="header-wrap">
-      <a class="brand" href="/">
-        <span class="brand-badge" aria-hidden="true"></span>
-        <span>Free Off-Road Recovery</span>
-      </a>
-      <button class="menu-btn" aria-label="Open menu">☰ Menu</button>
-    </div>
-  </header>
+  <!-- Header + Menu are auto-injected by site.js -->
 
   <main>
-    <!-- Hero block. Do NOT add another giant H1 that just repeats the site name -->
+    <!-- Hero -->
     <section class="hero">
       <div class="wrap">
         <div class="hero-card">
           <h1>Get Unstuck With Community Help</h1>
-          <p>We connect drivers with volunteers for no-cost off-road recovery. Public bulletin board. No professional services offered.</p>
+          <p>
+            We connect drivers with volunteers for no-cost off-road recovery. 
+            Public bulletin board. No professional services offered.
+          </p>
           <p style="margin-top:18px">
             <a class="btn btn-primary" href="/find.html">🔎 Find Volunteers</a>
           </p>
@@ -35,7 +28,7 @@
       </div>
     </section>
 
-    <!-- Optional info section -->
+    <!-- Info section -->
     <section class="section">
       <div class="wrap">
         <div class="card">
@@ -45,18 +38,23 @@
             <li>Share your GPS location, terrain type, and vehicle details.</li>
             <li>Wait in a safe spot. You are responsible for your own safety and property.</li>
           </ol>
-          <p style="color:var(--muted)">Use at your own risk. Read the FAQ before posting.</p>
+          <p style="color:var(--muted)">
+            Use at your own risk. Read the FAQ before posting.
+          </p>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="wrap">© <span id="yr"></span> Free Off-Road Recovery</div>
+    <div class="wrap">
+      © <span id="yr"></span> Free Off-Road Recovery
+    </div>
   </footer>
 
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
   </script>
+  <script src="/site.js" defer></script>
 </body>
 </html>
