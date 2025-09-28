@@ -1,31 +1,37 @@
 // Build a consistent header + drawer menu on every page
 document.addEventListener('DOMContentLoaded', () => {
-  // === YOUR MENU LINKS ===
+  // --- One-time redirect: old /home.html -> root ---
+  if (location.pathname.toLowerCase().endsWith('/home.html')) {
+    location.replace('/');
+    return;
+  }
+
+  // --- YOUR MENU LINKS (use / for Home) ---
   const links = [
-    { href: '/home.html',      label: 'Home' },
-    { href: '/find.html',      label: 'Find Volunteers' },
+    { href: '/',             label: 'Home' },
+    { href: '/find.html',    label: 'Find Volunteers' },
     { href: '/volunteer.html', label: 'Become a Volunteer' },
-    { href: '/FAQ.html',       label: 'FAQ' },
-    { href: '/Contact.html',   label: 'Contact' }
+    { href: '/faq.html',     label: 'FAQ' },
+    { href: '/contact.html', label: 'Contact' }
   ];
 
-  // Insert header at top of body (if not already present)
+  // --- Insert header at top if missing ---
   if (!document.querySelector('.site-header')) {
     const header = document.createElement('header');
     header.className = 'site-header';
     header.innerHTML = `
       <div class="header-wrap">
-        <a class="brand" href="/home.html">
+        <a class="brand" href="/" aria-label="Free Off-Road Recovery home">
           <span class="brand-badge" aria-hidden="true"></span>
           <span>Free Off-Road Recovery</span>
         </a>
-        <button class="menu-btn" aria-label="Open menu" id="menuBtn">☰ Menu</button>
+        <button class="menu-btn" aria-label="Open menu" id="menuBtn" aria-expanded="false">☰ Menu</button>
       </div>
     `;
     document.body.prepend(header);
   }
 
-  // Build overlay + drawer once
+  // --- Build overlay + drawer once ---
   if (!document.querySelector('.nav-overlay')) {
     const overlay = document.createElement('div');
     overlay.className = 'nav-overlay';
@@ -48,27 +54,47 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(overlay);
     document.body.appendChild(drawer);
 
-    // Add links
+    // --- Add links & active state ---
     const navLinks = drawer.querySelector('#navLinks');
-    const path = (location.pathname.replace(/\/+$/, '') || '/').toLowerCase();
+
+    const normalize = (p) => {
+      if (!p) return '/';
+      const low = p.toLowerCase().replace(/\/+$/, '');
+      if (low === '' || low === '/') return '/';
+      if (low.endsWith('/index.html')) return '/';
+      if (low.endsWith('/home.html')) return '/';
+      return low;
+    };
+
+    const current = normalize(location.pathname);
+
     links.forEach(l => {
       const a = document.createElement('a');
       a.href = l.href;
       a.textContent = l.label;
 
-      // simple active state check (case-insensitive for safety)
-      const normalized = (l.href.replace(/\/+$/, '') || '/').toLowerCase();
-      if (normalized === path) a.classList.add('active');
+      const target = normalize(l.href);
+      if (target === current) a.classList.add('active');
 
       navLinks.appendChild(a);
     });
 
-    // Wire up open/close
-    const open = () => document.documentElement.classList.add('nav-open');
-    const close = () => document.documentElement.classList.remove('nav-open');
+    // --- Open/close handlers with a11y tweaks ---
+    const html = document.documentElement;
+    const menuBtn = document.getElementById('menuBtn');
+    const closeBtn = document.getElementById('navClose');
 
-    document.getElementById('menuBtn')?.addEventListener('click', open);
-    document.getElementById('navClose')?.addEventListener('click', close);
+    const open = () => {
+      html.classList.add('nav-open');
+      if (menuBtn) menuBtn.setAttribute('aria-expanded', 'true');
+    };
+    const close = () => {
+      html.classList.remove('nav-open');
+      if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
+    };
+
+    menuBtn?.addEventListener('click', open);
+    closeBtn?.addEventListener('click', close);
     overlay.addEventListener('click', close);
 
     // Close on ESC
