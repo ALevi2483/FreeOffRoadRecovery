@@ -3,55 +3,162 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Home • Free Off-Road Recovery</title>
-  <meta name="description" content="Welcome to Free Off-Road Recovery. Connect with volunteers to get help when you’re stuck off-road." />
+  <meta name="description" content="Community-powered off-road recovery. Find volunteers or join the network to help stuck drivers. No fees—neighbors helping neighbors." />
+
+  <!-- Icons / Styles -->
   <link rel="icon" href="/favicon.ico" />
   <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Open Graph / Social share -->
+  <meta property="og:title" content="Free Off-Road Recovery" />
+  <meta property="og:description" content="Volunteer off-road recoveries. No fees—neighbors helping neighbors." />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://freeoffroadrecovery.com/home.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Page-only visual tweaks -->
+  <style>
+    /* hero visuals */
+    .hero--image {
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255,255,255,.18), transparent 40%),
+        radial-gradient(circle at 80% 0%, rgba(255,255,255,.10), transparent 45%),
+        linear-gradient(180deg,#111827 0%, #1b242c 100%);
+      color:#fff; border-bottom:none;
+    }
+    .hero--image .hero-card{
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      color:#fff;
+    }
+    .hero--image h1{ color:#fff }
+    .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+
+    /* quick actions */
+    .grid{display:grid;gap:16px}
+    @media (min-width: 720px){ .grid{grid-template-columns:repeat(3,1fr)} }
+    .action-card h3{margin:0 0 8px}
+    .action-card p{margin:0 0 12px}
+
+    /* stats */
+    .stats{display:grid;gap:10px;margin-top:6px}
+    @media (min-width:720px){ .stats{grid-template-columns:repeat(3,1fr)} }
+    .stat{background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+    .stat strong{font-size:1.35rem;display:block}
+
+    /* testimonial */
+    .quote{font-style:italic;margin:0}
+    .quote cite{display:block;color:var(--muted);margin-top:8px}
+
+    /* safety callout */
+    .callout{background:#fff3e8;border:1px solid #ffe1c8;border-radius:12px;padding:14px}
+  </style>
 </head>
 <body>
-  <!-- Header + Menu are auto-injected by site.js -->
+  <!-- Header + Menu auto-injected by site.js -->
 
   <main>
-    <!-- Hero -->
-    <section class="hero">
+    <!-- HERO -->
+    <section class="hero hero--image" aria-labelledby="hero-title">
       <div class="wrap">
         <div class="hero-card">
-          <h1>Welcome to Free Off-Road Recovery</h1>
-          <p>
-            Community-powered off-road recovery. Whether you’re stuck in mud, sand, or snow, 
-            volunteers in your area can help at no cost.
-          </p>
-          <p style="margin-top:18px">
+          <h1 id="hero-title">Get Unstuck. Get Home.</h1>
+          <p>Volunteer off-road recoveries for mud, sand, snow, and trails. No fees—neighbors helping neighbors.</p>
+          <div class="btn-row">
             <a class="btn btn-primary" href="/find.html">🔎 Find Volunteers</a>
+            <a class="btn" href="/volunteer.html">✋ Become a Volunteer</a>
+            <a class="btn" href="/FAQ.html">📖 Read the FAQ</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK ACTIONS -->
+    <section class="section" aria-labelledby="quick-actions">
+      <div class="wrap">
+        <h2 id="quick-actions" style="margin-top:0">Quick Actions</h2>
+        <div class="grid">
+          <div class="card action-card">
+            <h3>Post a Request</h3>
+            <p>Share a GPS pin, vehicle details, and terrain. Volunteers will contact you directly.</p>
+            <p><a class="btn btn-primary" href="/find.html">Start Here</a></p>
+          </div>
+          <div class="card action-card">
+            <h3>Join as Volunteer</h3>
+            <p>Add yourself to the map. Bring basic gear and common sense—no winch required.</p>
+            <p><a class="btn" href="/volunteer.html">Sign Up</a></p>
+          </div>
+          <div class="card action-card">
+            <h3>Learn the Basics</h3>
+            <p>What info to share, what gear helps, and when to call it—fast answers in the FAQ.</p>
+            <p><a class="btn" href="/FAQ.html">Open FAQ</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF / STATS -->
+    <section class="section" aria-labelledby="by-the-numbers">
+      <div class="wrap">
+        <div class="card">
+          <h2 id="by-the-numbers" style="margin-top:0">By the Numbers</h2>
+          <div class="stats">
+            <div class="stat">
+              <strong>40+</strong>
+              Active Volunteers
+            </div>
+            <div class="stat">
+              <strong>50 mi</strong>
+              Typical Response Radius
+            </div>
+            <div class="stat">
+              <strong>$0</strong>
+              Always Free (tips optional)
+            </div>
+          </div>
+          <p class="quote" style="margin-top:14px">
+            “Buried to the frame in sand. Two volunteers showed up in under an hour and had me moving in ten minutes.”
+            <cite>— Driver submission</cite>
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Quick links -->
-    <section class="section">
+    <!-- SAFETY / DISCLAIMER -->
+    <section class="section" aria-labelledby="safety">
       <div class="wrap">
-        <div class="card">
-          <h2 style="margin-top:0">Get Started</h2>
+        <div class="callout">
+          <h2 id="safety" style="margin-top:0">Safety First</h2>
           <ul>
-            <li><a href="/find.html">Find volunteers near you</a></li>
-            <li><a href="/post.html">Post a recovery request</a></li>
-            <li><a href="/faq.html">Read the FAQ</a></li>
-            <li><a href="/about.html">Learn more about this project</a></li>
+            <li>Volunteers are not professionals. Use at your own risk.</li>
+            <li>Share a GPS pin, terrain hazards, and whether you have recovery points.</li>
+            <li>If anyone’s in danger, call 911 before anything else.</li>
           </ul>
+          <p style="margin:0;color:var(--muted)">See full details in the <a href="/FAQ.html">FAQ</a>.</p>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="wrap">
-      © <span id="yr"></span> Free Off-Road Recovery
-    </div>
+    <div class="wrap">© <span id="yr"></span> Free Off-Road Recovery</div>
   </footer>
 
   <script>
+    // Footer year
     document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Exact menu items (case-sensitive to match your files)
+    window.MENU_LINKS = [
+      { href: '/home.html',      label: 'Home' },
+      { href: '/find.html',      label: 'Find Volunteers' },
+      { href: '/volunteer.html', label: 'Become a Volunteer' },
+      { href: '/FAQ.html',       label: 'FAQ' },
+      { href: '/Contact.html',   label: 'Contact' }
+    ];
   </script>
   <script src="/site.js" defer></script>
 </body>
